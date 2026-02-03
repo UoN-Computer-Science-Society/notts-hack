@@ -1,6 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
+
+const BlockchainScene = dynamic(() => import('./BlockchainScene'), {
+  ssr: false,
+});
 
 const events = [
   { type: 'KICKOFF', title: 'Info Session', date: '5th Jan 2026' },
@@ -12,8 +18,17 @@ const events = [
 
 export default function TimelineSection() {
   return (
-    <section id="timeline" className="relative z-10 py-32 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4">
+    <section id="timeline" className="relative py-32 overflow-hidden">
+
+      {/* Background animation (same as Hero) */}
+      <div className="absolute inset-0 z-0">
+        <Suspense fallback={null}>
+          <BlockchainScene />
+        </Suspense>
+      </div>
+
+      {/* Timeline content */}
+      <div className="relative z-10 max-w-6xl mx-auto px-4">
         <motion.h2
           className="font-pixel text-2xl md:text-4xl text-center mb-5 text-white"
           initial={{ opacity: 0, y: 30 }}
@@ -33,16 +48,12 @@ export default function TimelineSection() {
         </motion.p>
       </div>
 
-      <div className="relative max-w-4xl mx-auto px-4">
+      <div className="relative z-10 max-w-4xl mx-auto px-4">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-[2px] bg-white/20" />
 
         <div className="flex flex-col gap-10 py-10">
           {events.map((event, index) => (
-            <TimelineItem
-              key={index}
-              event={event}
-              index={index}
-            />
+            <TimelineItem key={index} event={event} index={index} />
           ))}
         </div>
       </div>
@@ -61,7 +72,6 @@ function TimelineItem({ event, index }: any) {
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
     >
-      {/* glowing dot */}
       <motion.div
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-4 h-4 rounded-full bg-[#5CE6A0]"
         animate={{
@@ -74,20 +84,18 @@ function TimelineItem({ event, index }: any) {
         transition={{ duration: 1.5, repeat: Infinity }}
       />
 
-      {/* connector */}
       <div
         className={`absolute top-1/2 h-[2px] w-12 bg-white/40 ${
           isLeft ? 'right-1/2' : 'left-1/2'
         }`}
       />
 
-      {/* hoverable card */}
       <motion.div
         className={`card-dark p-6 w-[300px] absolute top-1/2 -translate-y-1/2 text-center cursor-pointer ${
           isLeft ? 'right-1/2 mr-12' : 'left-1/2 ml-12'
         }`}
         whileHover={{
-          boxShadow: '0 0 30px rgba(255, 77, 166, 0.5)',
+          boxShadow: "0 0 20px rgba(246, 94, 170, 0.54)",
           scale: 1.05,
         }}
         transition={{ type: 'spring', stiffness: 200, damping: 15 }}
