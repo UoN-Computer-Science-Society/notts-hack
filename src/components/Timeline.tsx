@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
+import BlockchainScene2 from './BlockchainScene2';
 
 const BlockchainScene = dynamic(() => import('./BlockchainScene'), {
   ssr: false,
@@ -11,7 +12,7 @@ const BlockchainScene = dynamic(() => import('./BlockchainScene'), {
 const events = [
   { type: 'KICKOFF', title: 'Info Session', date: '5th Jan 2026' },
   { type: 'LAUNCH', title: 'Registration Opens', date: '5–15 Jan 2026' },
-  { type: 'WORKSHOP', title: 'Workshop 1: Introduction to Web', date: '31st Jan 2026' },
+  { type: 'WORKSHOP', title: 'Workshop 1: Introduction to Hackathon', date: '24th March 2026' },
   { type: 'WORKSHOP', title: 'Workshop 2: First Android App', date: '1st Feb 2026' },
   { type: 'HACKATHON', title: 'Hacking Begins', date: '6th Apr 2026' },
 ];
@@ -23,7 +24,7 @@ export default function TimelineSection() {
       {/* Background animation (same as Hero) */}
       <div className="absolute inset-0 z-0">
         <Suspense fallback={null}>
-          <BlockchainScene />
+          <BlockchainScene2 />
         </Suspense>
       </div>
 
