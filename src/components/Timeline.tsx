@@ -10,7 +10,7 @@ const BlockchainScene = dynamic(() => import('./BlockchainScene'), {
 });
 
 const events = [
-  { type: 'KICKOFF', title: 'Info Session', date: '5th Jan 2026' },
+  { type: 'KICKOFF', title: 'Info Session', date: '11th February 2026' },
   { type: 'LAUNCH', title: 'Registration Opens', date: '11th February 2026' },
   { type: 'WORKSHOP 1', title: 'Introduction to Hackathon: Tips from past winners', date: '24th March 2026' },
   { type: 'WORKSHOP 2', title: 'Introduction to BlockChain and Cryptocurrency', date: '25th March 2026' },
@@ -53,8 +53,10 @@ export default function TimelineSection() {
 
       <div className="relative z-10 max-w-4xl mx-auto px-4">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-[2px] bg-white/20" />
-
-        <div className="flex flex-col gap-10 py-10">
+      
+      // adjust gaps between boxes 
+      // adjust line spacing 
+        <div className="flex flex-col gap-5 py-5">  
           {events.map((event, index) => (
             <TimelineItem key={index} event={event} index={index} />
           ))}
