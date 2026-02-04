@@ -53,9 +53,7 @@ export default function TimelineSection() {
 
       <div className="relative z-10 max-w-4xl mx-auto px-4">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-[2px] bg-white/20" />
-      
-      // adjust gaps between boxes 
-      // adjust line spacing 
+        {/* adjust gaps between boxes // adjust line spacing */}
         <div className="flex flex-col gap-5 py-5">  
           {events.map((event, index) => (
             <TimelineItem key={index} event={event} index={index} />
