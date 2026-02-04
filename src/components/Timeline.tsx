@@ -12,10 +12,10 @@ const BlockchainScene = dynamic(() => import('./BlockchainScene'), {
 const events = [
   { type: 'KICKOFF', title: 'Info Session', date: '5th Jan 2026' },
   { type: 'LAUNCH', title: 'Registration Opens', date: '11th February 2026' },
-  { type: 'WORKSHOP', title: 'Workshop 1: Introduction to Hackathon: Tips from past winners', date: '24th March 2026' },
-  { type: 'WORKSHOP', title: 'Workshop 2: Introduction to BlockChain and Cryptocurrency', date: '25th March2026' },
-  { type: 'WORKSHOP', title : 'Workshop 3: Intro to Agentic Coding + EVM', date: '26th March 2026' },
-  { type: 'WORKSHOP', title : 'Workshop 4: Introduction to Sui and Move Language', date: '31st March - 1st April 2026' },
+  { type: 'WORKSHOP 1', title: 'Introduction to Hackathon: Tips from past winners', date: '24th March 2026' },
+  { type: 'WORKSHOP 2', title: 'Introduction to BlockChain and Cryptocurrency', date: '25th March 2026' },
+  { type: 'WORKSHOP 3', title : 'Intro to Agentic Coding + EVM', date: '26th March 2026' },
+  { type: 'WORKSHOP 4', title : 'Introduction to Sui and Move Language', date: '31st March - 1st April 2026' },
   { type: 'HACKATHON', title: 'Hacking Begins', date: '6th - 12th Apr 2026' },
 ];
 

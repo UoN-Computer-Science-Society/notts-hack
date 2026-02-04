@@ -16,10 +16,12 @@ function Tetrahedron({ onClick }: { onClick?: () => void }) {
 
   const vertices = useMemo(() => {
     const v = [
-      new THREE.Vector3(0, 1.5, 0),
-      new THREE.Vector3(-1.2, -0.8, 1),
-      new THREE.Vector3(1.2, -0.8, 1),
-      new THREE.Vector3(0, -0.8, -1.4),
+      new THREE.Vector3(0, 0.9, 0),
+      new THREE.Vector3(-0.72, -0.48, 0.6),
+      new THREE.Vector3(0.72, -0.48, 0.6),
+      new THREE.Vector3(0, -0.48, -0.84),
+
+
     ];
     return v;
   }, []);
