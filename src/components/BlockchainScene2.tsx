@@ -8,6 +8,8 @@ import * as THREE from 'three';
 const ACCENT_PINK = '#FF4DA6';
 const ACCENT_MINT = '#5CE6A0';
 
+// (Tetrahedron component still exists but is NOT used anymore)
+// You can delete it later if you want cleaner code
 function Tetrahedron({ onClick }: { onClick?: () => void }) {
   const meshRef = useRef<THREE.Group>(null);
   const [hovered, setHovered] = useState(false);
@@ -15,15 +17,12 @@ function Tetrahedron({ onClick }: { onClick?: () => void }) {
   const pulseRef = useRef(0);
 
   const vertices = useMemo(() => {
-    const v = [
+    return [
       new THREE.Vector3(0, 0.9, 0),
       new THREE.Vector3(-0.72, -0.48, 0.6),
       new THREE.Vector3(0.72, -0.48, 0.6),
       new THREE.Vector3(0, -0.48, -0.84),
-
-
     ];
-    return v;
   }, []);
 
   const edges = useMemo(() => {
@@ -248,7 +247,6 @@ function ConnectionLines() {
           opacity={0.3}
           dashed
           dashSize={0.3}
-          dashOffset={0}
           gapSize={0.2}
         />
       ))}
@@ -263,7 +261,8 @@ function Scene({ onBlockConfirm }: { onBlockConfirm?: () => void }) {
       <pointLight position={[10, 10, 10]} intensity={0.5} color={ACCENT_PINK} />
       <pointLight position={[-10, -10, -10]} intensity={0.5} color={ACCENT_MINT} />
 
-      <Tetrahedron onClick={onBlockConfirm} />
+      {/* Triangle removed here */}
+
       <FloatingNodes count={100} />
       <SmallTetrahedrons count={12} />
       <ConnectionLines />

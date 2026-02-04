@@ -75,7 +75,7 @@ function TimelineItem({ event, index }: any) {
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
     >
-      <motion.div
+      <motion.div // dot adjustment 
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-4 h-4 rounded-full bg-[#5CE6A0]"
         animate={{
           boxShadow: [
@@ -89,7 +89,7 @@ function TimelineItem({ event, index }: any) {
 
       <div
         className={`absolute top-1/2 h-[2px] w-12 bg-white/40 ${
-          isLeft ? 'right-1/2' : 'left-1/2'
+          isLeft ? 'right-1/2' : 'left-1/2' // small line from center to box adjustment
         }`}
       />
 
