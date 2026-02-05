@@ -1,8 +1,5 @@
 'use client';
 
-import { Suspense } from 'react';
-import BlockchainScene from './BlockchainScene';
-
 import { useState } from 'react';
 
 const faqs = [
