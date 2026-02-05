@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, Suspense } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import AnimatedLogo from './AnimatedLogo';
+
 
 const BlockchainScene = dynamic(() => import('./BlockchainScene'), {
   ssr: false,
@@ -16,6 +17,12 @@ const BlockchainScene = dynamic(() => import('./BlockchainScene'), {
 
 export default function HeroSection() {
   const [blockConfirmed, setBlockConfirmed] = useState(false);
+  const [mounted, setMounted] = useState(false); // ensures client-side mount
+  const [hovered, setHovered] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleBlockConfirm = () => {
     setBlockConfirmed(true);
@@ -26,7 +33,7 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Halftone overlay */}
       <div className="absolute inset-0 halftone-overlay pointer-events-none z-[1]" />
-      
+
       {/* Decorative asterisks */}
       <motion.div 
         className="absolute top-10 left-10 text-6xl md:text-8xl text-[#FF4DA6] font-bold opacity-60 select-none"
@@ -64,7 +71,103 @@ export default function HeroSection() {
         </Suspense>
       </div>
 
-      {/* Content */}
+      {/* Top-right Info Box
+      {mounted && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="fixed top-6 right-6 z-50 pointer-events-auto"
+        >
+          <div className="bg-black/60 backdrop-blur-md text-white rounded-xl p-4 shadow-lg max-w-xs">
+            <h3 className="text-sm font-semibold text-pink-400">Info Box</h3>
+            <p className="mt-1 text-xs text-white/80">
+              This is some info text displayed in the top-right corner.
+            </p>
+          </div>
+        </motion.div>
+      )} */}
+      {/* Top-right blockchain chain (center-aligned, bookmark-style) */}
+      <div
+        className="fixed top-6 right-6 z-50 flex flex-col items-center"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
+        <AnimatePresence>
+          {/* Hovered chain */}
+          {hovered && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ staggerChildren: 0.1 }}
+              className="flex flex-col items-center gap-2"
+            >
+              {[
+                { label: 'INFO', href: '#info', color: 'bg-black/60' },
+                { label: 'Dates', href: '#dates', color: 'bg-pink-400' },
+                { label: 'About', href: '#about', color: 'bg-green-400' },
+                { label: 'Sponsors', href: '#sponsors', color: 'bg-pink-400' },
+                { label: 'Tracks', href: '#tracks', color: 'bg-green-400' },
+              ].map((block, i) => (
+                <motion.div key={i} className="flex flex-col items-center relative">
+                  {/* Block link */}
+                  <motion.a
+                    href={block.href}
+                    className={`w-28 h-12 rounded-md shadow-lg flex items-center justify-center text-white font-bold text-sm cursor-pointer ${block.color}`}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2, delay: i * 0.05 }}
+                  >
+                    {block.label}
+                  </motion.a>
+
+                  {/* Chain connector (curved) except last block */}
+                  {i < 4 && (
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-4 h-4">
+                      <svg
+                        className="w-full h-full"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="white"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M12 0 C12 6 12 6 12 12" /> {/* curved link down */}
+                      </svg>
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+
+          {/* Non-hovered state — only INFO */}
+          {!hovered && (
+            <motion.a
+              href="#info"
+              className="w-28 h-12 rounded-md shadow-lg flex items-center justify-center text-white font-bold text-sm cursor-pointer bg-black/60 backdrop-blur-md"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              INFO
+            </motion.a>
+          )}
+        </AnimatePresence>
+      </div>
+
+
+
+
+
+
+
+      {/* Main Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         {/* CSS Presents Badge */}
         <motion.div
