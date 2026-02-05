@@ -98,7 +98,7 @@ function TimelineItem({ event, index }: any) {
           isLeft ? 'right-1/2 mr-12' : 'left-1/2 ml-12'
         }`}
         whileHover={{
-          boxShadow: "0 0 20px rgba(246, 94, 170, 0.54)",
+          boxShadow: "0 0 30px rgba(255, 77, 166, 0.3)",
           scale: 1.05,
         }}
         transition={{ type: 'spring', stiffness: 200, damping: 15 }}
