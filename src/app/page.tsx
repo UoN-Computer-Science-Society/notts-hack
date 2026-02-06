@@ -12,8 +12,8 @@ export default function Home() {
       <TracksSection />
       <Timeline />
       <SponsorsSection />
-      <Footer />
       <FAQSection />
+      <Footer />
     </main>
   );
 }
