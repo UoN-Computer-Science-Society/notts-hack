@@ -24,6 +24,11 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <img 
+          src="/CCACCLogo.svg" 
+          alt="Decoration" 
+          className="absolute top-0 right-10 w-24 h-24 md:w-60 md:h-40 object-contain"
+        />
       {/* Halftone overlay */}
       <div className="absolute inset-0 halftone-overlay pointer-events-none z-[1]" />
       
