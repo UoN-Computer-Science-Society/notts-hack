@@ -9,12 +9,16 @@
     "lint": "eslint",
     "video:preview": "remotion studio src/video/Root.tsx",
     "video:render": "remotion render src/video/Root.tsx NottsHackExplainer out/video.mp4",
-    "video:render-chapter": "remotion render src/video/Root.tsx"
+    "video:render-chapter": "remotion render src/video/Root.tsx",
+    "poster:preview": "remotion studio src/video/Root.tsx",
+    "poster:render-mp4": "remotion render src/video/Root.tsx AIPaperClubPoster out/ai-paper-club-poster.mp4",
+    "poster:render-gif": "remotion render src/video/Root.tsx AIPaperClubPoster out/ai-paper-club-poster.gif --image-format png"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",
     "@remotion/cli": "^4.0.414",
+    "@remotion/google-fonts": "^4.0.414",
     "framer-motion": "^12.29.2",
     "next": "16.1.6",
     "react": "19.2.3",

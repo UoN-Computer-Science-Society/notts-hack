@@ -69,25 +69,22 @@ const faqs = [
 
 
 export default function FAQSection() {
-
-  {/* Background animation (same as Hero) */}
-    <div className="absolute inset-0 z-0">
-     <Suspense fallback={null}>
-       <BlockchainScene2 />
-      </Suspense>
-    </div>
-
-
   const [open, setOpen] = useState<number | null>(null);
 
   const leftFaqs = faqs.filter((_, i) => i % 2 === 0);
   const rightFaqs = faqs.filter((_, i) => i % 2 === 1);
 
   return (
+    <section className="relative min-h-screen w-full bg-gradient-to-b from-[#5D4777] to-[#5D4777] text-white px-6 py-20 overflow-hidden">
+      {/* Background animation */}
+      <div className="absolute inset-0 z-0">
+        <Suspense fallback={null}>
+          <BlockchainScene2 />
+        </Suspense>
+      </div>
 
-    <section className="min-h-screen w-full bg-gradient-to-b from-[#5D4777] to-[#5D4777] text-white px-6 py-20">
-      <div className="max-w-4xl mx-auto">
-        
+      <div className="relative z-10 max-w-4xl mx-auto">
+
 
         <h2 className="font-pixel text-3xl md:text-3.5xl text-center mb-12">
           <span>FREQUENTLY</span>{' '}
@@ -135,7 +132,7 @@ export default function FAQSection() {
                     onClick={() => setOpen(open === index ? null : index)}
                     className="w-full text-left px-6 py-3 flex justify-between items-center"
                   >
-                   <span className="font-mono font-bold text-lg text-white/90 leading-relaxed mb-6">{faq.q}</span>
+                    <span className="font-mono font-bold text-lg text-white/90 leading-relaxed mb-6">{faq.q}</span>
                     <span className="text-pink-400 text-xl">
                       {open === index ? '−' : '+'}
                     </span>
