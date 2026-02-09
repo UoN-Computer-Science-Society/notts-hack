@@ -231,9 +231,9 @@ export function TracksSection() {
 
 export function SponsorsSection() {
   const sponsors = [
-    { name: 'CCACC', tier: 'Platinum' },
-    { name: 'University of Nottingham', tier: 'Gold' },
-    { name: 'CSS Society', tier: 'Organizer' },
+    { name: 'CCACC', tier: 'Platinum', icon: '/CCACCLogo.svg'},
+    { name: 'University of Nottingham', tier: 'Gold', icon: '/image1.png' },
+    { name: 'CSS Society', tier: 'Organizer', icon: '/CSSLogo.png' },
   ];
 
   return (
@@ -270,7 +270,13 @@ export function SponsorsSection() {
             >
               <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-white/10 flex items-center justify-center">
                 <span className="font-pixel text-2xl text-[#5CE6A0]">
-                  {sponsor.name.charAt(0)}
+                  {sponsor.icon && (
+                    <img 
+                    src={sponsor.icon} 
+                    alt={`${sponsor.name} logo`} 
+                    className="w-full h-full object-contain" 
+                    />
+                  )}
                 </span>
               </div>
               <h3 className="font-mono text-white font-bold mb-1">{sponsor.name}</h3>
@@ -294,36 +300,40 @@ export function SponsorsSection() {
 
 export function Footer() {
   const socials = [
-    { name: 'Twitter', icon: '𝕏', url: '#' },
-    { name: 'Discord', icon: '💬', url: '#' },
-    { name: 'GitHub', icon: '⌨️', url: '#' },
-    { name: 'Instagram', icon: '📸', url: '#' },
+    { name: 'Instagram', icon: <img src="/Instagram2.png" alt="Instagram" className=""/>, url: 'https://www.instagram.com/unm.css?igsh=cTBmc21hNWFuNHF0' },
+
   ];
 
   return (
     <footer className="py-12 px-4 relative z-10 border-t border-white/10">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto ">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="flex items-center gap-4">
-            <DuckMascot size="sm" />
+          <div className="flex items-center gap-0">
+            {/* <DuckMascot size="sm" /> Goodbye Duck ;( */}
+            <img 
+              src="/NottsHack23.png" 
+              alt="Notts Hack Mascot" 
+              className="w-40 h-40 md:w-55 md:h-55 object-contain" // 'w-8 h-8' is roughly equivalent to 'sm' size
+            />
             <div>
               <p className="font-pixel text-sm text-white">NOTTS HACK 2026</p>
-              <p className="font-mono text-xs text-white/60">CSS @ University of Nottingham</p>
+              <p className="font-mono text-xs text-white/60">UNM CSS <br /> University of Nottingham Malaysia</p>
             </div>
           </div>
 
-          <div className="flex gap-4">
+          <div className="flex gap-4 md:absolute md:left-1/2 md:-translate-x-1/2">
             {socials.map((social) => (
-              <motion.a
-                key={social.name}
-                href={social.url}
-                className="w-10 h-10 card-dark flex items-center justify-center text-xl hover:bg-[#FF4DA6]/20"
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                aria-label={social.name}
-              >
-                {social.icon}
-              </motion.a>
+            <motion.a
+              key={social.name}
+              href={social.url}
+              className="w-10 h-10 card-dark flex items-center justify-center text-xl hover:bg-[#FF4DA6]/20"
+              target="_blank"
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              aria-label={social.name}
+            >
+            {social.icon}
+            </motion.a>
             ))}
           </div>
 

@@ -22,39 +22,27 @@ const events = [
 export default function TimelineSection() {
   return (
     <section id="timeline" className="relative py-32 overflow-hidden">
-
-      {/* Background animation (same as Hero) */}
+      {/* Background animation */}
       <div className="absolute inset-0 z-0">
         <Suspense fallback={null}>
           <BlockchainScene2 />
         </Suspense>
       </div>
 
-      {/* Timeline content */}
       <div className="relative z-10 max-w-6xl mx-auto px-4">
-        <motion.h2
-          className="font-pixel text-2xl md:text-4xl text-center mb-5 text-white"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
+        <motion.h2 className="font-pixel text-2xl md:text-4xl text-center mb-5 text-white">
           EVENT TIMELINE
         </motion.h2>
-
-        <motion.p
-          className="text-center text-[#FF4DA6] font-pixel text-sm mb-24"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-        >
+        <motion.p className="text-center text-[#FF4DA6] font-pixel text-sm mb-24">
           FOR MORE INFO ↓
         </motion.p>
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-4">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-[2px] bg-white/20" />
-        {/* adjust gaps between boxes // adjust line spacing */}
-        <div className="flex flex-col gap-5 py-5">  
+        {/* The Vertical Line: Left-aligned on mobile, Center-aligned on desktop */}
+        <div className="absolute top-0 left-8 md:left-1/2 -translate-x-1/2 h-full w-[2px] bg-white/20" />
+
+        <div className="flex flex-col gap-12">
           {events.map((event, index) => (
             <TimelineItem key={index} event={event} index={index} />
           ))}
@@ -69,49 +57,43 @@ function TimelineItem({ event, index }: any) {
 
   return (
     <motion.div
-      className="relative w-full h-[160px]"
-      initial={{ opacity: 0, x: isLeft ? -40 : 40 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      // 1. flex items-center ensures the dot and card are ALWAYS perfectly leveled
+      className={`relative flex items-center w-full min-h-[150px] ${
+        isLeft ? 'md:flex-row-reverse' : 'md:flex-row'
+      }`}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
     >
-      <motion.div // dot adjustment 
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-4 h-4 rounded-full bg-[#5CE6A0]"
-        animate={{
-          boxShadow: [
-            "0 0 15px rgba(92,230,160,0.9)",
-            "0 0 25px rgba(92,230,160,0.7)",
-            "0 0 15px rgba(92,230,160,0.9)"
-          ],
-        }}
+      {/* 2. The Dot (Stays on the line) */}
+      <motion.div 
+        className="absolute left-8 md:left-1/2 -translate-x-1/2 z-20 w-4 h-4 rounded-full bg-[#5CE6A0]"
+        animate={{ boxShadow: ["0 0 10px #5CE6A0", "0 0 20px #5CE6A0", "0 0 10px #5CE6A0"] }}
         transition={{ duration: 1.5, repeat: Infinity }}
       />
 
-      <div
-        className={`absolute top-1/2 h-[2px] w-12 bg-white/40 ${
-          isLeft ? 'right-1/2' : 'left-1/2' // small line from center to box adjustment
-        }`}
+      {/* 3. The Connecting Line (Calculated from the center) */}
+      <div 
+      className={`hidden md:block absolute top-1/2 -translate-y-1/2 h-[2px] w-[12vw] bg-white/40 ${
+        isLeft 
+      ? 'left-[calc(50%+8px)]'// Starts 8px left of center, extends 48px left
+      : 'right-[calc(50%+8px)]'   // Starts 8px right of center, extends 48px right
+      }`} 
       />
 
+      {/* 4. The Content Card (Now using margins instead of absolute positioning) */}
       <motion.div
-        className={`card-dark p-6 w-[300px] absolute top-1/2 -translate-y-1/2 text-center cursor-pointer ${
-          isLeft ? 'right-1/2 mr-12' : 'left-1/2 ml-12'
-        }`}
-        whileHover={{
-          boxShadow: "0 0 30px rgba(255, 77, 166, 0.3)",
-          scale: 1.05,
-        }}
-        transition={{ type: 'spring', stiffness: 200, damping: 15 }}
+        className={`
+          card-dark p-6 z-10
+          w-[calc(100%-5rem)] ml-20 mr-4    /* Mobile styles */
+          md:w-[320px] md:ml-0 md:mr-0     /* Desktop styles */
+          ${isLeft ? 'md:mr-12' : 'md:ml-12'}
+        `}
+        whileHover={{ scale: 1.05 }}
       >
-        <span className="font-pixel text-xs text-[#FF4DA6] block">
-          {event.type}
-        </span>
-        <h3 className="font-mono text-white text-lg mt-2">
-          {event.title}
-        </h3>
-        <p className="font-mono text-[#B8AEC9] text-sm mt-1">
-          {event.date}
-        </p>
+        <span className="font-pixel text-xs text-[#FF4DA6] block">{event.type}</span>
+        <h3 className="font-mono text-white text-lg mt-2 leading-tight">{event.title}</h3>
+        <p className="font-mono text-[#B8AEC9] text-sm mt-1">{event.date}</p>
       </motion.div>
     </motion.div>
   );
