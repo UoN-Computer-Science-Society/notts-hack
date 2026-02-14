@@ -150,7 +150,7 @@ export default function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
         >
-          📅 April 6-12, 2026 • 📍 University of Nottingham
+          📅 April 6-12, 2026 • 📍 University of Nottingham Malaysia
         </motion.p>
       </div>
 
