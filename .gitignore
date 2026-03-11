@@ -43,3 +43,6 @@ next-env.d.ts
 video
 #rules
 rules
+public/horse-sprite.png.png
+public/horse.png
+public/coin-sprite.png.png

@@ -12,7 +12,10 @@
     "video:render-chapter": "remotion render src/video/Root.tsx",
     "poster:preview": "remotion studio src/video/Root.tsx",
     "poster:render-mp4": "remotion render src/video/Root.tsx AIPaperClubPoster out/ai-paper-club-poster.mp4",
-    "poster:render-gif": "remotion render src/video/Root.tsx AIPaperClubPoster out/ai-paper-club-poster.gif --image-format png"
+    "poster:render-gif": "remotion render src/video/Root.tsx AIPaperClubPoster out/ai-paper-club-poster.gif --image-format png",
+    "cny:preview": "remotion studio src/video/Root.tsx",
+    "cny:render-mp4": "remotion render src/video/Root.tsx CNYPoster out/cny-poster.mp4",
+    "cny:render-gif": "remotion render src/video/Root.tsx CNYPoster out/cny-poster.gif --image-format png"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
@@ -24,7 +27,8 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "remotion": "^4.0.414",
-    "three": "^0.182.0"
+    "three": "^0.182.0",
+    "zod": "3.22.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

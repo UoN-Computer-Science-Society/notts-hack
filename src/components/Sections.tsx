@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import CountdownTimer from './CountdownTimer';
 import DuckMascot from './DuckMascot';
 
+import DLFrameReveal from './DLFrameReveal';
+
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
   animate: { opacity: 1, y: 0 },
@@ -12,7 +14,7 @@ const fadeInUp = {
 
 export function DatesSection() {
   const hackathonStart = new Date('2026-04-06T00:00:00');
-  
+
   const dates = [
     { title: 'Hacking Period', date: '6-12 April 2026', description: 'Online hacking begins!' },
     { title: 'Physical Hacking', date: '10-12 April 2026', location: 'University of Nottingham' },
@@ -21,13 +23,13 @@ export function DatesSection() {
   return (
     <section id="dates" className="py-20 px-4 relative z-10">
       <div className="max-w-6xl mx-auto">
-        <motion.h2 
+        <motion.h2
           className="font-pixel text-2xl md:text-4xl text-center mb-4 text-white"
           {...fadeInUp}
         >
           IMPORTANT DATES
         </motion.h2>
-        <motion.p 
+        <motion.p
           className="text-center text-[#FF4DA6] font-pixel text-sm mb-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -72,31 +74,31 @@ export function AboutSection() {
   return (
     <section id="about" className="py-20 px-4 relative z-10">
       <div className="max-w-4xl mx-auto">
-        <motion.h2 
+        <motion.h2
           className="font-pixel text-2xl md:text-4xl text-center mb-12 text-white"
           {...fadeInUp}
         >
           ABOUT NOTTS HACK
         </motion.h2>
 
-        <motion.div 
+        <motion.div
           className="card-dark p-8 md:p-12"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
         >
           <p className="font-mono text-lg text-white/90 leading-relaxed mb-6">
-            <span className="text-[#5CE6A0] font-bold">Notts Hack</span> is a blockchain-themed hackathon 
-            brought to you by the <span className="text-[#FF4DA6]">Computer Science Society (CSS)</span> at 
+            <span className="text-[#5CE6A0] font-bold">Notts Hack</span> is a blockchain-themed hackathon
+            brought to you by the <span className="text-[#FF4DA6]">Computer Science Society (CSS)</span> at
             the University of Nottingham.
           </p>
           <p className="font-mono text-lg text-white/90 leading-relaxed mb-6">
-            Join us for an exciting week of building, hacking, and decentralizing! Whether you&apos;re a 
-            seasoned developer or just starting out, this is your chance to explore Web3 technologies, 
+            Join us for an exciting week of building, hacking, and decentralizing! Whether you&apos;re a
+            seasoned developer or just starting out, this is your chance to explore Web3 technologies,
             blockchain development, and cutting-edge decentralized applications.
           </p>
           <p className="font-mono text-lg text-white/90 leading-relaxed">
-            Collaborate with talented peers, learn from industry experts, and compete for amazing prizes. 
+            Collaborate with talented peers, learn from industry experts, and compete for amazing prizes.
             Let&apos;s build the future of the decentralized web together! 🚀
           </p>
 
@@ -117,7 +119,7 @@ export function AboutSection() {
         </motion.div>
 
         <div className="mt-12 grid md:grid-cols-2 gap-6">
-          <motion.div 
+          <motion.div
             className="card-dark p-6 text-center"
             whileHover={{ scale: 1.02 }}
           >
@@ -125,7 +127,7 @@ export function AboutSection() {
             <h4 className="font-pixel text-sm text-[#5CE6A0] mb-2">UNIVERSITY OF NOTTINGHAM</h4>
             <p className="font-mono text-white/70 text-sm">Host Institution</p>
           </motion.div>
-          <motion.div 
+          <motion.div
             className="card-dark p-6 text-center"
             whileHover={{ scale: 1.02 }}
           >
@@ -170,13 +172,13 @@ export function TracksSection() {
   return (
     <section id="tracks" className="py-20 px-4 relative z-10">
       <div className="max-w-6xl mx-auto">
-        <motion.h2 
+        <motion.h2
           className="font-pixel text-2xl md:text-4xl text-center mb-4 text-white"
           {...fadeInUp}
         >
           TRACKS & CHALLENGES
         </motion.h2>
-        <motion.p 
+        <motion.p
           className="text-center text-[#5CE6A0] font-pixel text-sm mb-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -194,7 +196,7 @@ export function TracksSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 boxShadow: `0 0 40px ${track.color}40`
               }}
@@ -202,7 +204,7 @@ export function TracksSection() {
               <div className="flex items-start gap-4">
                 <span className="text-4xl">{track.icon}</span>
                 <div>
-                  <h3 
+                  <h3
                     className="font-pixel text-sm md:text-base mb-3"
                     style={{ color: track.color }}
                   >
@@ -213,8 +215,8 @@ export function TracksSection() {
                   </p>
                 </div>
               </div>
-              
-              <motion.div 
+
+              <motion.div
                 className="mt-4 h-1 rounded-full"
                 style={{ background: track.color }}
                 initial={{ width: 0 }}
@@ -231,21 +233,22 @@ export function TracksSection() {
 
 export function SponsorsSection() {
   const sponsors = [
-    { name: 'CCACC', tier: 'Platinum', icon: '/CCACCLogo.svg'},
-    { name: 'University of Nottingham', tier: 'Gold', icon: '/image1.png' },
-    { name: 'CSS Society', tier: 'Organizer', icon: '/CSSLogo.png' },
+    { name: 'DCAI', tier: 'Platinum', icon: '/DCAI.png', bgClass: 'bg-white p-2' },
+    { name: 'CSS Society', tier: 'Organizer', icon: '/CSSLogo.png', bgClass: 'bg-white/10' },
   ];
 
   return (
     <section id="sponsors" className="py-20 px-4 relative z-10">
       <div className="max-w-4xl mx-auto">
-        <motion.h2 
+        <DLFrameReveal />
+
+        <motion.h2
           className="font-pixel text-2xl md:text-4xl text-center mb-4 text-white"
           {...fadeInUp}
         >
           SPONSORS & PARTNERS
         </motion.h2>
-        <motion.p 
+        <motion.p
           className="text-center text-[#FF4DA6] font-pixel text-sm mb-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -254,7 +257,7 @@ export function SponsorsSection() {
           Made possible by
         </motion.p>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
           {sponsors.map((sponsor, index) => (
             <motion.div
               key={sponsor.name}
@@ -263,21 +266,19 @@ export function SponsorsSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.05,
                 boxShadow: '0 0 30px rgba(255, 77, 166, 0.3)'
               }}
             >
-              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-white/10 flex items-center justify-center">
-                <span className="font-pixel text-2xl text-[#5CE6A0]">
-                  {sponsor.icon && (
-                    <img 
-                    src={sponsor.icon} 
-                    alt={`${sponsor.name} logo`} 
-                    className="w-full h-full object-contain" 
-                    />
-                  )}
-                </span>
+              <div className={`w-20 h-20 mx-auto mb-4 rounded-full ${sponsor.bgClass} flex items-center justify-center overflow-hidden`}>
+                {sponsor.icon && (
+                  <img
+                    src={sponsor.icon}
+                    alt={`${sponsor.name} logo`}
+                    className="w-full h-full object-contain"
+                  />
+                )}
               </div>
               <h3 className="font-mono text-white font-bold mb-1">{sponsor.name}</h3>
               <p className="font-pixel text-xs text-[#FF4DA6]">{sponsor.tier}</p>
@@ -285,7 +286,7 @@ export function SponsorsSection() {
           ))}
         </div>
 
-        <motion.p 
+        <motion.p
           className="text-center mt-12 font-mono text-white/60"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -300,7 +301,7 @@ export function SponsorsSection() {
 
 export function Footer() {
   const socials = [
-    { name: 'Instagram', icon: <img src="/Instagram2.png" alt="Instagram" className=""/>, url: 'https://www.instagram.com/unm.css?igsh=cTBmc21hNWFuNHF0' },
+    { name: 'Instagram', icon: <img src="/Instagram2.png" alt="Instagram" className="" />, url: 'https://www.instagram.com/unm.css?igsh=cTBmc21hNWFuNHF0' },
 
   ];
 
@@ -310,9 +311,9 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex items-center gap-0">
             {/* <DuckMascot size="sm" /> Goodbye Duck ;( */}
-            <img 
-              src="/NottsHack23.png" 
-              alt="Notts Hack Mascot" 
+            <img
+              src="/NottsHack23.png"
+              alt="Notts Hack Mascot"
               className="w-40 h-40 md:w-55 md:h-55 object-contain" // 'w-8 h-8' is roughly equivalent to 'sm' size
             />
             <div>
@@ -323,17 +324,17 @@ export function Footer() {
 
           <div className="flex gap-4 md:absolute md:left-1/2 md:-translate-x-1/2">
             {socials.map((social) => (
-            <motion.a
-              key={social.name}
-              href={social.url}
-              className="w-10 h-10 card-dark flex items-center justify-center text-xl hover:bg-[#FF4DA6]/20"
-              target="_blank"
-              whileHover={{ scale: 1.1, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              aria-label={social.name}
-            >
-            {social.icon}
-            </motion.a>
+              <motion.a
+                key={social.name}
+                href={social.url}
+                className="w-10 h-10 card-dark flex items-center justify-center text-xl hover:bg-[#FF4DA6]/20"
+                target="_blank"
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label={social.name}
+              >
+                {social.icon}
+              </motion.a>
             ))}
           </div>
 

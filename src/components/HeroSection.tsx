@@ -24,37 +24,32 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <img 
-          src="/CCACCLogo.svg" 
-          alt="Decoration" 
-          className="absolute top-0 right-10 w-24 h-24 md:w-60 md:h-40 object-contain"
-        />
       {/* Halftone overlay */}
       <div className="absolute inset-0 halftone-overlay pointer-events-none z-[1]" />
-      
+
       {/* Decorative asterisks */}
-      <motion.div 
+      <motion.div
         className="absolute top-10 left-10 text-6xl md:text-8xl text-[#FF4DA6] font-bold opacity-60 select-none"
         animate={{ rotate: 360 }}
         transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
       >
         ✱
       </motion.div>
-      <motion.div 
+      <motion.div
         className="absolute bottom-10 right-10 text-6xl md:text-8xl text-[#5CE6A0] font-bold opacity-60 select-none"
         animate={{ rotate: -360 }}
         transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
       >
         ✱
       </motion.div>
-      <motion.div 
+      <motion.div
         className="absolute top-1/4 right-20 text-4xl md:text-6xl text-[#FF4DA6] font-bold opacity-40 select-none hidden md:block"
         animate={{ rotate: 180, scale: [1, 1.2, 1] }}
         transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
       >
         ✱
       </motion.div>
-      <motion.div 
+      <motion.div
         className="absolute bottom-1/4 left-20 text-4xl md:text-6xl text-[#5CE6A0] font-bold opacity-40 select-none hidden md:block"
         animate={{ rotate: -180, scale: [1, 1.1, 1] }}
         transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
@@ -70,7 +65,21 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center justify-center pt-10">
+        {/* CCACC Logo */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mb-8"
+        >
+          <img
+            src="/CCACCLogo.svg"
+            alt="CCACC Logo"
+            className="w-32 h-auto md:w-48 object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+          />
+        </motion.div>
+
         {/* CSS Presents Badge */}
         <motion.div
           className="inline-block mb-6"
