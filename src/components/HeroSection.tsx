@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, Suspense } from 'react';
+import { useState, useCallback, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import dynamic from 'next/dynamic';
+import { DvdScreensaver } from 'react-dvd-screensaver';
 import AnimatedLogo from './AnimatedLogo';
 
 const BlockchainScene = dynamic(() => import('./BlockchainScene'), {
@@ -14,8 +15,16 @@ const BlockchainScene = dynamic(() => import('./BlockchainScene'), {
   ),
 });
 
+const DVD_COLORS = ['#FF4DA6', '#5CE6A0', '#FF6B6B', '#4ECDC4', '#FFE66D', '#A855F7', '#38BDF8'];
+
 export default function HeroSection() {
   const [blockConfirmed, setBlockConfirmed] = useState(false);
+  const [dvdMode, setDvdMode] = useState(false);
+  const [logoHue, setLogoHue] = useState(0);
+
+  const handleImpact = useCallback((count: number) => {
+    setLogoHue(count % DVD_COLORS.length);
+  }, []);
 
   const handleBlockConfirm = () => {
     setBlockConfirmed(true);
@@ -97,6 +106,8 @@ export default function HeroSection() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
+          className="cursor-pointer"
+          onClick={() => setDvdMode(true)}
         >
           <AnimatedLogo />
         </motion.div>
@@ -162,6 +173,39 @@ export default function HeroSection() {
           📅 April 6-12, 2026 • 📍 University of Nottingham Malaysia
         </motion.p>
       </div>
+
+      {/* DVD Bounce Easter Egg */}
+      <AnimatePresence>
+        {dvdMode && (
+          <motion.div
+            className="fixed top-0 left-0 z-[9999] cursor-pointer"
+            style={{ width: '100vw', height: '100vh', margin: 0, padding: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setDvdMode(false)}
+          >
+            <DvdScreensaver
+              speed={3}
+              impactCallback={handleImpact}
+              // @ts-expect-error - width/height accept numbers at runtime
+              width={typeof window !== 'undefined' ? window.innerWidth : 1920}
+              // @ts-expect-error - width/height accept numbers at runtime
+              height={typeof window !== 'undefined' ? window.innerHeight : 1080}
+            >
+              <img
+                src="/NottsHack23.png"
+                alt="Notts Hack Logo"
+                className="w-32 md:w-48 h-auto object-contain"
+                style={{
+                  filter: `drop-shadow(0 0 20px ${DVD_COLORS[logoHue]})`,
+                  transition: 'filter 0.3s ease',
+                }}
+              />
+            </DvdScreensaver>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Scroll indicator */}
       <motion.div
