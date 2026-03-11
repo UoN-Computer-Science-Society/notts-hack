@@ -97,7 +97,7 @@ export default function HeroSection() {
           transition={{ delay: 0.2 }}
         >
           <span className="card-dark px-4 py-2 font-pixel text-xs md:text-sm text-[#FF4DA6]">
-            ✨ CSS PRESENTS ✨
+            ✨UNM CSS PRESENTS ✨
           </span>
         </motion.div>
 
@@ -170,7 +170,7 @@ export default function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
         >
-          📅 April 6-12, 2026 • 📍 University of Nottingham Malaysia
+          
         </motion.p>
       </div>
 
