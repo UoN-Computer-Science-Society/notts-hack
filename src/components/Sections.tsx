@@ -1,6 +1,8 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { DvdScreensaver } from 'react-dvd-screensaver';
 import CountdownTimer from './CountdownTimer';
 import DuckMascot from './DuckMascot';
 
@@ -299,7 +301,16 @@ export function SponsorsSection() {
   );
 }
 
+const DVD_COLORS = ['#FF4DA6', '#5CE6A0', '#FF6B6B', '#4ECDC4', '#FFE66D', '#A855F7', '#38BDF8'];
+
 export function Footer() {
+  const [dvdMode, setDvdMode] = useState(false);
+  const [logoHue, setLogoHue] = useState(0);
+
+  const handleImpact = useCallback((count: number) => {
+    setLogoHue(count % DVD_COLORS.length);
+  }, []);
+
   const socials = [
     { name: 'Instagram', icon: <img src="/Instagram2.png" alt="Instagram" className="" />, url: 'https://www.instagram.com/unm.css?igsh=cTBmc21hNWFuNHF0' },
 
@@ -314,7 +325,8 @@ export function Footer() {
             <img
               src="/NottsHack23.png"
               alt="Notts Hack Mascot"
-              className="w-40 h-40 md:w-55 md:h-55 object-contain" // 'w-8 h-8' is roughly equivalent to 'sm' size
+              className="w-40 h-40 md:w-55 md:h-55 object-contain cursor-pointer"
+              onClick={() => setDvdMode(true)}
             />
             <div>
               <p className="font-pixel text-sm text-white">NOTTS HACK 2026</p>
@@ -356,6 +368,38 @@ export function Footer() {
           </p>
         </div>
       </div>
+      {/* DVD Bounce Easter Egg */}
+      <AnimatePresence>
+        {dvdMode && (
+          <motion.div
+            className="fixed top-0 left-0 z-[9999] cursor-pointer"
+            style={{ width: '100vw', height: '100vh', margin: 0, padding: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setDvdMode(false)}
+          >
+            <DvdScreensaver
+              speed={3}
+              impactCallback={handleImpact}
+              // @ts-expect-error - width/height accept numbers at runtime
+              width={typeof window !== 'undefined' ? window.innerWidth : 1920}
+              // @ts-expect-error - width/height accept numbers at runtime
+              height={typeof window !== 'undefined' ? window.innerHeight : 1080}
+            >
+              <img
+                src="/NottsHack23.png"
+                alt="Notts Hack Logo"
+                className="w-32 md:w-48 h-auto object-contain"
+                style={{
+                  filter: `drop-shadow(0 0 20px ${DVD_COLORS[logoHue]})`,
+                  transition: 'filter 0.3s ease',
+                }}
+              />
+            </DvdScreensaver>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </footer>
   );
 }
