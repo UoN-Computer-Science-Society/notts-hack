@@ -1,7 +1,5 @@
 'use client';
 
-/*hi*/
-
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
