@@ -13,6 +13,20 @@ export const metadata: Metadata = {
     title: "Notts Hack 2026",
     description: "Build. Hack. Decentralize. A blockchain-themed hackathon.",
     type: "website",
+    images: [
+      {
+        url: "/NottsHack23.png",
+        width: 1154,
+        height: 543,
+        alt: "Notts Hack 2026",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Notts Hack 2026 | Blockchain Hackathon",
+    description: "Build. Hack. Decentralize. A blockchain-themed hackathon.",
+    images: ["/NottsHack23.png"],
   },
 };
 
