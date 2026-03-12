@@ -66,10 +66,9 @@ body {
 
 /* Card styles */
 .card-dark {
-  background: rgba(45, 45, 58, 0.9);
+  background: rgba(45, 45, 58, 0.95);
   border-radius: 20px;
   border: 2px solid var(--outline-purple);
-  backdrop-filter: blur(10px);
 }
 
 /* Button animations */

@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const DLFrameReveal: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [logoAlpha, setLogoAlpha] = useState(0);
+  const logoRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -90,17 +90,17 @@ const DLFrameReveal: React.FC = () => {
 
       ctx.restore();
 
-      if (t >= T_frame + T_hold) {
+      if (t >= T_frame + T_hold && logoRef.current) {
         const lAlpha = Math.min(Math.max((t - T_frame - T_hold) / T_logo, 0), 1);
         // Quantize alpha to 8 steps for retro bite
         const quantizedAlpha = Math.floor(lAlpha * 8) / 8;
-        setLogoAlpha(quantizedAlpha);
+        logoRef.current.style.opacity = String(quantizedAlpha);
       }
 
       if (t < T_total + 500) {
         animationFrameId = requestAnimationFrame(render);
-      } else {
-        setLogoAlpha(1);
+      } else if (logoRef.current) {
+        logoRef.current.style.opacity = '1';
       }
     };
 
@@ -108,7 +108,7 @@ const DLFrameReveal: React.FC = () => {
       if (entries[0].isIntersecting && !hasPlayed) {
         hasPlayed = true;
         start = null;
-        setLogoAlpha(0);
+        if (logoRef.current) logoRef.current.style.opacity = '0';
         animationFrameId = requestAnimationFrame(render);
       }
     }, { threshold: 0.3 });
@@ -131,9 +131,10 @@ const DLFrameReveal: React.FC = () => {
         height={450}
         className="absolute inset-0 w-full h-full"
       />
-      <div 
+      <div
+        ref={logoRef}
         className="relative z-10 flex flex-col items-center justify-center pointer-events-none transition-opacity duration-75"
-        style={{ opacity: logoAlpha }}
+        style={{ opacity: 0 }}
       >
         <h3 className="font-pixel text-[#FF4DA6] text-xl md:text-2xl mb-8 tracking-widest text-center drop-shadow-[0_0_8px_rgba(255,77,166,0.6)]">
           FOUNDING SPONSOR
