@@ -126,6 +126,61 @@ export function AboutSection() {
     </section>
   );
 }
+export function GettingThereSection() {
+  return (
+    <section id="getting-there" className="py-20 px-4 relative z-10">
+      <div className="max-w-5xl mx-auto">
+        <motion.h2
+          className="font-pixel text-2xl md:text-4xl text-center mb-4 text-white"
+          {...fadeInUp}
+        >
+          GETTING THERE
+        </motion.h2>
+        <motion.p
+          className="text-center text-[#FF4DA6] font-pixel text-sm mb-12"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+        >
+          Get to University of Nottingham Malaysia (UNM).
+        </motion.p>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          <motion.div
+            className="card-dark p-8 md:p-10"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h4 className="font-pixel text-lg text-[#5CE6A0] mb-3">By public transport</h4>
+            <ul className="font-mono text-white/80 text-sm space-y-2">
+              <li>• Take MRT to Kajang station.</li>
+              <li>• From Kajang, take a Grab to <a href="https://maps.app.goo.gl/YaruvD3KzeTsb6dEA" target="_blank" rel="noreferrer" className="text-[#5CE6A0] underline">UNM Cafeteria</a>.</li>
+              
+            </ul>
+          </motion.div>
+
+          <motion.div
+            className="card-dark p-8 md:p-10"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h4 className="font-pixel text-lg text-[#FF4DA6] mb-3">By car</h4>
+            <ul className="font-mono text-white/80 text-sm space-y-2">
+              <li>
+                • Use Google Maps: <a href="https://maps.app.goo.gl/YaruvD3KzeTsb6dEA" target="_blank" rel="noreferrer" className="text-[#5CE6A0] underline">UNM Cafeteria</a>.
+              </li>
+              <li>• Parking is available on campus(Park in yellow and red lot).</li>
+              
+              
+            </ul>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export function TracksSection() {
   const tracks = [
