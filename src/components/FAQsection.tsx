@@ -9,8 +9,8 @@ import { useState } from 'react';
 
 const faqs = [
   {
-    q: 'What is Nott Hack 2026?',
-    a: 'Nott Hack 2026 is a blockchain-themed student hackathon where participants build innovative decentralized solutions, learn new skills, and connect with other developers through workshops, mentorship, and competition.',
+    q: 'What is NottsHack 2026?',
+    a: 'NottsHack 2026 is a blockchain-themed student hackathon where participants build innovative decentralized solutions, learn new skills, and connect with other developers through workshops, mentorship, and competition.',
   },
   {q: 'Who can participate?',
     a: 'This event is open to all students from any university or college in Malaysia.',
@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     q: 'When and where is NottsHack 2026 held?',
-    a: 'Nott Hack 2026 will be held from 6th April to 12 April 2026 at the University of Nottingham, Malaysia.',
+    a: 'NottsHack 2026 will be held from 6th April to 12 April 2026 at the University of Nottingham, Malaysia.',
   },
   {
     q: 'When is the deadline for registration?',
