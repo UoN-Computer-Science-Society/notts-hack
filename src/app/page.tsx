@@ -1,7 +1,7 @@
 import FAQSection from '@/components/FAQsection';
 import HeroSection from '@/components/HeroSection';
 import NukeEffect from '@/components/NukeEffect';
-import { AboutSection, TracksSection, SponsorsSection, Footer } from '@/components/Sections';
+import { GettingThereSection, AboutSection, TracksSection, SponsorsSection, Footer } from '@/components/Sections';
 import Timeline from '@/components/Timeline';
 
 export default function Home() {
@@ -10,6 +10,7 @@ export default function Home() {
       <NukeEffect />
       <HeroSection />
       <AboutSection />
+      <GettingThereSection />
       <TracksSection />
       <Timeline />
       <SponsorsSection />
