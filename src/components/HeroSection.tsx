@@ -18,14 +18,25 @@ const BlockchainScene = dynamic(() => import('./BlockchainScene'), {
 
 const DVD_COLORS = ['#FF4DA6', '#5CE6A0', '#FF6B6B', '#4ECDC4', '#FFE66D', '#A855F7', '#38BDF8'];
 
+const MOBILE_BREAKPOINT = 768;
+
 export default function HeroSection() {
   const [blockConfirmed, setBlockConfirmed] = useState(false);
   const [dvdMode, setDvdMode] = useState(false);
   const [logoHue, setLogoHue] = useState(0);
   const [windowSize, setWindowSize] = useState({ w: 1920, h: 1080 });
+  const [isMobile, setIsMobile] = useState(true);
 
   useEffect(() => {
     setWindowSize({ w: window.innerWidth, h: window.innerHeight });
+    setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+    const mq = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
+    const handler = () => {
+      setIsMobile(mq.matches);
+      setWindowSize({ w: window.innerWidth, h: window.innerHeight });
+    };
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
   }, []);
 
   const handleImpact = useCallback((count: number) => {
@@ -56,11 +67,20 @@ export default function HeroSection() {
         ✱
       </div>
 
-      {/* 3D Canvas */}
+      {/* 3D Canvas — disabled on mobile to prevent scroll jank and blank/loading glitches */}
       <div className="absolute inset-0 z-0">
-        <Suspense fallback={null}>
-          <BlockchainScene onBlockConfirm={handleBlockConfirm} />
-        </Suspense>
+        {isMobile ? (
+          <div
+            className="w-full h-full opacity-90"
+            style={{
+              background: 'linear-gradient(135deg, #7B5BA6 0%, #5D4777 50%, #3D2D5A 100%)',
+            }}
+          />
+        ) : (
+          <Suspense fallback={null}>
+            <BlockchainScene onBlockConfirm={handleBlockConfirm} />
+          </Suspense>
+        )}
       </div>
 
       {/* Content */}

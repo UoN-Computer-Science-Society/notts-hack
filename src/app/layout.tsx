@@ -6,7 +6,9 @@ import Navbar from "@/components/Navbar";
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 5,
+  maximumScale: 1,
+  userScalable: false,
+  themeColor: "#5D4777",
 };
 
 const OG_IMAGE_PATH = "/NottsHack23.png";

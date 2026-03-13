@@ -7,6 +7,7 @@ import Timeline from '@/components/Timeline';
 export default function Home() {
   return (
     <main className="relative min-h-screen animated-gradient">
+      <div className="page-bg" aria-hidden />
       <NukeEffect />
       <HeroSection />
       <AboutSection />

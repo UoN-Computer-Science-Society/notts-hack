@@ -30,14 +30,23 @@
 
 html {
   scroll-behavior: smooth;
+  /* Same as body so overscroll/rubber-band never shows white */
+  background: var(--secondary-purple);
+  min-height: 100%;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
   background: linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-purple) 100%);
+  background-attachment: fixed;
   color: var(--foreground);
   font-family: 'Space Mono', monospace;
-  min-height: 100vh;
+  min-height: 100%;
   overflow-x: hidden;
+  overscroll-behavior: none;
+  /* Reduce tap delay and accidental zoom on mobile */
+  touch-action: manipulation;
 }
 
 .font-pixel {
@@ -111,8 +120,18 @@ body {
 .animated-gradient {
   background: linear-gradient(-45deg, #7B5BA6, #5D4777, #3D2D5A, #7B5BA6);
   background-size: 400% 400%;
+  background-attachment: scroll;
   animation: gradientShift 15s ease infinite;
   will-change: background-position;
+}
+
+/* Fixed background layer so overscroll and scroll never show white */
+.page-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-purple) 100%);
+  pointer-events: none;
 }
 
 /* Scrollbar styling */
