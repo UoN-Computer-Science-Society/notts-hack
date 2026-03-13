@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const logoColors = ['#FF4DA6', '#FFFFFF', '#5CE6A0', '#FF4DA6', '#FFFFFF', '#5CE6A0', '#FF4DA6', '#FFFFFF', '#5CE6A0'];
 
 export default function AnimatedLogo() {
-  const letters = 'NOTTS HACK'.split('');
+  const letters = 'NottsHack'.split('');
 
   return (
     <div className="flex flex-wrap justify-center items-center gap-0.5 sm:gap-1 md:gap-2">

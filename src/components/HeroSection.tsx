@@ -185,7 +185,7 @@ export default function HeroSection() {
             >
               <img
                 src="/NottsHack23.png"
-                alt="Notts Hack Logo"
+                alt="NottsHack Logo"
                 className="w-32 md:w-48 h-auto object-contain"
                 style={{
                   filter: `drop-shadow(0 0 20px ${DVD_COLORS[logoHue]})`,

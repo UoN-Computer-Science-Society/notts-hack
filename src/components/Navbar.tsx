@@ -74,7 +74,7 @@ export default function Navbar() {
               }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
             >
-              <img src="/NottsHack23.png" alt="Notts Hack" className="h-10 w-auto object-contain" />
+              <img src="/NottsHack23.png" alt="NottsHack" className="h-10 w-auto object-contain" />
             </motion.a>
           </div>
 
@@ -133,7 +133,7 @@ export default function Navbar() {
             }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
           >
-            <img src="/NottsHack23.png" alt="Notts Hack" className="h-7 w-auto object-contain" />
+            <img src="/NottsHack23.png" alt="NottsHack" className="h-7 w-auto object-contain" />
           </motion.a>
           <button
             onClick={() => setMobileOpen((v) => !v)}

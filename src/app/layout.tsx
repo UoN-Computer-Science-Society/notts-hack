@@ -30,9 +30,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     metadataBase: new URL(baseUrl),
-    title: "Notts Hack 2026 | Blockchain Hackathon",
+    title: "NottsHack 2026 | Blockchain Hackathon",
     description:
-      "Build. Hack. Decentralize. Join Notts Hack, a blockchain-themed hackathon by CSS at University of Nottingham. April 6-12, 2026.",
+      "Build. Hack. Decentralize. Join NottsHack, a blockchain-themed hackathon by CSS at University of Nottingham. April 6-12, 2026.",
     keywords: [
       "hackathon",
       "blockchain",
@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
     ],
     icons: { icon: "/favicon.png" },
     openGraph: {
-      title: "Notts Hack 2026",
+      title: "NottsHack 2026",
       description: "Build. Hack. Decentralize. A blockchain-themed hackathon.",
       type: "website",
       url: baseUrl,
@@ -53,20 +53,20 @@ export async function generateMetadata(): Promise<Metadata> {
           url: ogImageUrl,
           width: OG_IMAGE_WIDTH,
           height: OG_IMAGE_HEIGHT,
-          alt: "Notts Hack 2026",
+          alt: "NottsHack 2026",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Notts Hack 2026 | Blockchain Hackathon",
+      title: "NottsHack 2026 | Blockchain Hackathon",
       description: "Build. Hack. Decentralize. A blockchain-themed hackathon.",
       images: [
         {
           url: ogImageUrl,
           width: OG_IMAGE_WIDTH,
           height: OG_IMAGE_HEIGHT,
-          alt: "Notts Hack 2026",
+          alt: "NottsHack 2026",
         },
       ],
     },

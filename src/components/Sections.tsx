@@ -31,7 +31,7 @@ export function AboutSection() {
           className="font-pixel text-xl sm:text-2xl md:text-4xl text-center mb-4 text-white"
           {...fadeInUp}
         >
-          ABOUT NOTTS HACK
+          ABOUT NottsHack
         </motion.h2>
         {/* Main description */}
         <motion.div
