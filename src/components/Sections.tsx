@@ -248,11 +248,11 @@ export function TracksSection() {
           "Climate & environmental monitoring",
         ],
         requirement: "Working prototype/demo, explanation of the problem and solution, description of blockchain use, project presentation",
-        prize: "Total Prize Pool: $500",
+        prize: "Total Prize Pool: 500 USDT",
         prizeBreakdown: [
-          { place: "1st Place", amount: "$250" },
-          { place: "2nd Place", amount: "$150" },
-          { place: "3rd Place", amount: "$100" },
+          { place: "1st Place", amount: "250 USDT" },
+          { place: "2nd Place", amount: "150 USDT" },
+          { place: "3rd Place", amount: "100 USDT" },
         ],
         link: "https://blockchainforgoodalliance.notion.site/BGA-Track-NottsHack-26-31dd27bbe9e580849c73cdae3215874e?pvs=143"
       },
@@ -276,7 +276,12 @@ export function TracksSection() {
         ],
         requirement:
           "Must integrate at least one interaction with the L3 network (API, data access, or ecosystem interaction).",
-        prize: "Prize Pool: 300 USDT",
+        prize: "Total Prize Pool: 300 USDT",
+        prizeBreakdown: [
+          { place: "1st Place", amount: "150 USDT" },
+          { place: "2nd Place", amount: "100 USDT" },
+          { place: "3rd Place", amount: "50 USDT" },
+        ],
       },
     },
   ];
