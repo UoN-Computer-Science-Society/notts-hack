@@ -6,7 +6,7 @@ import CountdownTimer from './CountdownTimer';
 import DuckMascot from './DuckMascot';
 
 import DLFrameReveal from './DLFrameReveal';
-import { CalendarDays, Users, Trophy, UtensilsCrossed, Instagram, TrainFront, Car, MapPin, Map } from 'lucide-react';
+import { CalendarDays, Users, Trophy, UtensilsCrossed, Instagram, TrainFront, Car, MapPin, Map, Award } from 'lucide-react';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -232,14 +232,12 @@ export function TracksSection() {
 
   const tracks = [
     {
-      title: "BGA Track",
+      title: "BGA",
       description:
         "Build blockchain solutions that solve real-world problems for communities, businesses, and institutions.",
-      icon: "🌍",
       color: "#FF4DA6",
-
       details: {
-        organiser: "Blockchain for Good Alliance (BGA) founded by Bybit",
+        organiser: "Blockchain for Good Alliance (BGA)",
         theme: "Blockchain for Real World Impact",
         focus: [
           "Financial inclusion",
@@ -249,20 +247,21 @@ export function TracksSection() {
           "Public digital infrastructure",
           "Climate & environmental monitoring",
         ],
-
-      requirement: "Working prototype/demo, explanation of the problem and solution, description of blockchain use, project presentation",
-      prize: "Total Prize Pool: $500",
-      link: "https://blockchainforgoodalliance.notion.site/BGA-Track-NottsHack-26-31dd27bbe9e580849c73cdae3215874e?pvs=143"
+        requirement: "Working prototype/demo, explanation of the problem and solution, description of blockchain use, project presentation",
+        prize: "Total Prize Pool: $500",
+        prizeBreakdown: [
+          { place: "1st Place", amount: "$250" },
+          { place: "2nd Place", amount: "$150" },
+          { place: "3rd Place", amount: "$100" },
+        ],
+        link: "https://blockchainforgoodalliance.notion.site/BGA-Track-NottsHack-26-31dd27bbe9e580849c73cdae3215874e?pvs=143"
       },
     },
-
     {
-      title: "DCAI Track",
+      title: "DCAI",
       description:
         "Create innovative applications using the DCAI ecosystem and L3 infrastructure on Base.",
-      icon: "🤖",
       color: "#5CE6A0",
-
       details: {
         organiser: "DCAI",
         theme: "Open Innovation Powered by DCAI",
@@ -288,217 +287,166 @@ export function TracksSection() {
 
     <section id="tracks" className="py-12 sm:py-16 md:py-20 px-4 relative z-10">
 
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-4xl mx-auto">
 
-        <h2 className="font-pixel text-xl sm:text-2xl md:text-4xl text-center mb-2 md:mb-4 text-white">
-          TRACKS & CHALLENGES
+        <h2 className="font-pixel text-xl sm:text-2xl md:text-4xl text-center mb-8 md:mb-12 text-white">
+          TRACKS
         </h2>
 
-        <p className="text-center text-[#5CE6A0] font-pixel text-xs sm:text-sm mb-8 md:mb-16">
-          Choose your path
-        </p>
+        {/* TABS */}
 
-        <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-start">
-
-          {/* LEFT SIDE TRACK LIST */}
-
-          <div className="flex flex-col gap-6">
-
-            {tracks.map((track, index) => {
-
-              const isActive = activeTrack.title === track.title;
-
-              return (
-                <motion.div
-                  key={track.title}
-                  onClick={() => setActiveTrack(track)}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.99 }}
-                  className="cursor-pointer card-dark p-4 sm:p-6 transition-all min-h-[60px] flex items-center"
-                  style={{
-                    border: isActive
-                      ? `1px solid ${track.color}`
-                      : "1px solid rgba(255,255,255,0.1)"
-                  }}
-                >
-
-                  <div className="flex items-center gap-4">
-
-                    {/* NUMBER */}
-                    <div
-                      className="w-8 h-8 rounded-md flex items-center justify-center font-pixel text-xs"
-                      style={{
-                       border: `1px solid ${track.color}`,
-                      color: track.color
-                          }}
-                          >
-                           {index + 1}
-                          </div>
-
-                    {/* TITLE */}
-                    <h3
-                      className="font-pixel text-sm md:text-base"
-                      style={{ color: track.color }}
-                    >
-                      {track.title}
-                    </h3>
-
-                  </div>
-
-                </motion.div>
-              );
-            })}
-
-          </div>
-
-
-          {/* RIGHT SIDE INFO CARD */}
-
-          <div className="relative">
-
-            <AnimatePresence mode="wait">
-
-              <motion.div
-                key={activeTrack.title}
-                initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -40 }}
-                transition={{ duration: 0.35 }}
-                className="card-dark p-4 sm:p-6 md:p-8 max-h-[min(70vh,420px)] sm:max-h-[520px] overflow-y-auto"
+        <div className="flex mb-8 border-b border-white/10">
+          {tracks.map((track) => {
+            const isActive = activeTrack.title === track.title;
+            return (
+              <button
+                key={track.title}
+                onClick={() => setActiveTrack(track)}
+                className="relative font-pixel text-sm md:text-base px-6 py-3 transition-colors"
+                style={{ color: isActive ? track.color : "rgba(255,255,255,0.5)" }}
               >
-
-                {/* HEADER */}
-
-                <div className="flex items-start gap-3 mb-6">
-
-                  {/* EMOJI (NO BORDER) */}
-                  <div className="text-3xl mt-1">
-                    {activeTrack.icon}
-                  </div>
-
-                  <div>
-
-                    <h3
-                      className="font-pixel text-xl mb-2"
-                      style={{ color: activeTrack.color }}
-                    >
-                      {activeTrack.title}
-                    </h3>
-
-                    <p className="font-mono text-white/80 leading-relaxed">
-                      {activeTrack.description}
-                    </p>
-
-                  </div>
-
-                </div>
-
-
-                {/* PRIZE */}
-
-                <div className="mb-6">
-
-                  <span
-                    className="font-pixel text-xs px-4 py-2 rounded-full inline-block"
-                    style={{
-                      border: `1px solid ${activeTrack.color}`,
-                      color: activeTrack.color
-                    }}
-                  >
-                    💰 {activeTrack.details.prize}
-                  </span>
-
-                </div>
-
-
-                {/* PROGRESS BAR */}
-
-                <div className="w-full h-1 bg-white/10 rounded-full mb-6">
-
-                  <div
-                    className="h-1 rounded-full"
-                    style={{
-                      width: "65%",
-                      background: activeTrack.color
-                    }}
+                {track.title}
+                {isActive && (
+                  <motion.div
+                    layoutId="track-tab-indicator"
+                    className="absolute bottom-0 left-0 right-0 h-0.5"
+                    style={{ background: track.color }}
+                    transition={{ duration: 0.25 }}
                   />
-
-                </div>
-
-
-                {/* ORGANISER */}
-
-                <p className="font-mono text-sm text-white/70 mb-2">
-                  <span className="text-white">Organiser:</span>{" "}
-                  {activeTrack.details.organiser}
-                </p>
-
-
-                {/* THEME */}
-
-                <p className="font-mono text-sm text-white/70 mb-6">
-                  <span className="text-white">Theme:</span>{" "}
-                  {activeTrack.details.theme}
-                </p>
-
-
-                {/* KEY CHALLENGES */}
-
-                <div>
-
-                  <p className="font-pixel text-xs text-white/70 mb-3">
-                    Project Types:
-                  </p>
-
-                  <ul className="font-mono text-sm text-white/80 space-y-2">
-
-                    {activeTrack.details.focus.map((item, i) => (
-
-                      <li key={i} className="flex gap-2 items-start">
-                        <span style={{ color: activeTrack.color }}>•</span>
-                        {item}
-                      </li>
-
-                    ))}
-
-                  </ul>
-
-                </div>
-                
-                {/* REQUIREMENT */}
-
-                {activeTrack.details.requirement && (
-
-                  <p className="font-mono text-sm text-white/70 mt-6">
-                    <span className="text-white">Requirement:</span>{" "}
-                    {activeTrack.details.requirement}
-                  </p>
-
                 )}
-
-                  {/* BGA LINK */}
-                  {activeTrack.details.link && (
-                    <div className="mt-6">
-                      <a
-                        href={activeTrack.details.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-pixel text-xs"
-                        style={{ color: "#26ABD7" }}
-                      >
-                        View full BGA track details →
-                      </a>
-                    </div>
-                  )}
-
-
-              </motion.div>
-
-            </AnimatePresence>
-
-          </div>
-
+              </button>
+            );
+          })}
         </div>
+
+        {/* TAB CONTENT */}
+
+        <AnimatePresence mode="wait">
+
+          <motion.div
+            key={activeTrack.title}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.25 }}
+            className="card-dark p-4 sm:p-6 md:p-8"
+          >
+
+            {/* DESCRIPTION */}
+
+            <p className="font-mono text-white/80 leading-relaxed mb-6">
+              {activeTrack.description}
+            </p>
+
+
+            {/* PRIZE */}
+
+            <div className="mb-6">
+
+              <div className="flex items-center gap-2 mb-3">
+                <Award className="w-4 h-4" style={{ color: activeTrack.color }} />
+                <span
+                  className="font-pixel text-xs"
+                  style={{ color: activeTrack.color }}
+                >
+                  {activeTrack.details.prize}
+                </span>
+              </div>
+
+              {activeTrack.details.prizeBreakdown && (
+                <div className="flex flex-wrap gap-2">
+                  {activeTrack.details.prizeBreakdown.map((p: { place: string; amount: string }, i: number) => (
+                    <span
+                      key={i}
+                      className="font-mono text-xs px-3 py-1.5 rounded-md"
+                      style={{
+                        border: `1px solid ${activeTrack.color}30`,
+                        color: "white",
+                        background: `${activeTrack.color}10`,
+                      }}
+                    >
+                      {p.place}: <span style={{ color: activeTrack.color }}>{p.amount}</span>
+                    </span>
+                  ))}
+                </div>
+              )}
+
+            </div>
+
+
+            {/* DIVIDER */}
+
+            <div className="w-full h-px bg-white/10 mb-6" />
+
+
+            {/* ORGANISER */}
+
+            <p className="font-mono text-sm text-white/70 mb-2">
+              <span className="text-white">Organiser:</span>{" "}
+              {activeTrack.details.organiser}
+            </p>
+
+
+            {/* THEME */}
+
+            <p className="font-mono text-sm text-white/70 mb-6">
+              <span className="text-white">Theme:</span>{" "}
+              {activeTrack.details.theme}
+            </p>
+
+
+            {/* PROJECT TYPES */}
+
+            <div>
+
+              <p className="font-pixel text-xs text-white/70 mb-3">
+                Project Types:
+              </p>
+
+              <ul className="font-mono text-sm text-white/80 space-y-2">
+
+                {activeTrack.details.focus.map((item, i) => (
+
+                  <li key={i} className="flex gap-2 items-start">
+                    <span style={{ color: activeTrack.color }}>•</span>
+                    {item}
+                  </li>
+
+                ))}
+
+              </ul>
+
+            </div>
+
+            {/* REQUIREMENT */}
+
+            {activeTrack.details.requirement && (
+
+              <p className="font-mono text-sm text-white/70 mt-6">
+                <span className="text-white">Requirement:</span>{" "}
+                {activeTrack.details.requirement}
+              </p>
+
+            )}
+
+            {/* BGA LINK */}
+            {activeTrack.details.link && (
+              <div className="mt-6">
+                <a
+                  href={activeTrack.details.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-pixel text-xs"
+                  style={{ color: "#26ABD7" }}
+                >
+                  View full BGA track details →
+                </a>
+              </div>
+            )}
+
+          </motion.div>
+
+        </AnimatePresence>
 
       </div>
 
