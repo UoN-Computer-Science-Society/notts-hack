@@ -476,8 +476,8 @@ export function SponsorsSection() {
   ];
 
   const communitySponsors = [
-    { name: 'SA UNMC', icon: '/sa_logo.png', bgClass: '' },
-    { name: 'School of Computer and Mathematical Sciences', icon: '/unm_logo.png', bgClass: '' },
+    { name: 'SA UNMC', icon: '/sa_logo.png', bgClass: '', url: 'https://www.instagram.com/saunmalaysia/?hl=en' },
+    { name: 'School of Computer and Mathematical Sciences', icon: '/unm_logo.png', bgClass: '', url: 'https://www.nottingham.edu.my/' },
   ];
 
   return (
@@ -618,7 +618,7 @@ export function SponsorsSection() {
               transition={{ delay: index * 0.1 }}
               whileHover={{ scale: 1.1 }}
             >
-              <div className={`${sponsor.bgClass} flex items-center justify-center rounded-lg px-2`}>
+              <a href={sponsor.url} target="_blank" rel="noopener noreferrer" className={`${sponsor.bgClass} flex items-center justify-center rounded-lg px-2`}>
                 {sponsor.icon ? (
                   <img
                     src={sponsor.icon}
@@ -628,7 +628,7 @@ export function SponsorsSection() {
                 ) : (
                   <span className="font-mono text-white/30 text-xs px-4">{sponsor.name}</span>
                 )}
-              </div>
+              </a>
             </motion.div>
           ))}
         </div>
