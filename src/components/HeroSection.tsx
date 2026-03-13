@@ -110,7 +110,7 @@ export default function HeroSection() {
           <span className="font-mono text-[10px] md:text-xs text-white/50 tracking-widest uppercase">
             powered by
           </span>
-          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 md:gap-6">
+          <div className="flex flex-row items-center gap-3 sm:gap-4 md:gap-6">
             <img
               src="/CCACCLogo.svg"
               alt="CCACC Logo"
