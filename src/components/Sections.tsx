@@ -467,6 +467,10 @@ export function SponsorsSection() {
     { name: 'BGA', icon: '/BGA Logo -  (coloured).PNG', bgClass: '', url: 'https://chainforgood.org/' },
   ];
 
+  const platinumSponsors = [
+    { name: 'Base', icon: '/base-logo-white.svg', bgClass: '', url: 'https://www.base.org/' },
+  ];
+
   const goldSponsors = [
     { name: 'HackQuest', icon: '/hackquest-logo-white.png', bgClass: '', invert: false, url: 'https://www.hackquest.io/' },
   ];
@@ -518,6 +522,41 @@ export function SponsorsSection() {
                   />
                 ) : (
                   <span className="font-mono text-white/30 text-sm px-8">{sponsor.name}</span>
+                )}
+              </a>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Platinum Sponsors */}
+        <motion.p
+          className="font-pixel text-xs text-[#B8C4D0] text-center mb-6 tracking-widest uppercase"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          Platinum Sponsors
+        </motion.p>
+        <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-8 max-w-2xl mx-auto mb-10 md:mb-14">
+          {platinumSponsors.map((sponsor, index) => (
+            <motion.div
+              key={sponsor.name}
+              className="flex items-center justify-center"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ scale: 1.1 }}
+            >
+              <a href={sponsor.url} target="_blank" rel="noopener noreferrer" className={`${sponsor.bgClass} flex items-center justify-center rounded-lg p-2`}>
+                {sponsor.icon ? (
+                  <img
+                    src={sponsor.icon}
+                    alt={`${sponsor.name} logo`}
+                    className="h-9 sm:h-10 md:h-12 w-auto object-contain"
+                  />
+                ) : (
+                  <span className="font-mono text-white/30 text-sm px-6">{sponsor.name}</span>
                 )}
               </a>
             </motion.div>
@@ -584,7 +623,7 @@ export function SponsorsSection() {
                   <img
                     src={sponsor.icon}
                     alt={`${sponsor.name} logo`}
-                    className="h-8 sm:h-9 md:h-10 w-auto object-contain"
+                    className="h-5 sm:h-6 md:h-7 w-auto object-contain"
                   />
                 ) : (
                   <span className="font-mono text-white/30 text-xs px-4">{sponsor.name}</span>
