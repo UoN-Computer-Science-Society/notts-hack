@@ -147,13 +147,13 @@ const DLFrameReveal: React.FC = () => {
               className="w-20 sm:w-28 md:w-40 h-auto object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
             />
           </a>
-          <div className="transition-transform duration-200 hover:scale-110 active:scale-105">
+          <a href="https://scalingx.xyz/" target="_blank" rel="noopener noreferrer" className="transition-transform duration-200 hover:scale-110 active:scale-105">
             <img
               src="/Scaling X labs logo-01.png"
               alt="Scaling X Labs Logo"
               className="w-20 sm:w-28 md:w-40 h-auto object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
             />
-          </div>
+          </a>
         </div>
       </div>
     </div>
