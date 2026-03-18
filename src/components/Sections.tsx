@@ -20,7 +20,7 @@ export function AboutSection() {
   const highlights = [
     { icon: <CalendarDays className="w-7 h-7" />, label: '6 Days', detail: 'of hacking', color: '#FF4DA6' },
     { icon: <Users className="w-7 h-7" />, label: '3-5 People', detail: 'per team', color: '#5CE6A0' },
-    { icon: <Trophy className="w-7 h-7" />, label: '$800+', detail: 'in prizes', color: '#FF4DA6' },
+    { icon: <Trophy className="w-7 h-7" />, label: '$1800+', detail: 'in prizes', color: '#FF4DA6' },
     { icon: <UtensilsCrossed className="w-7 h-7" />, label: 'Meals', detail: 'provided on-site', color: '#5CE6A0' },
   ];
 
@@ -248,11 +248,11 @@ export function TracksSection() {
           "Climate & environmental monitoring",
         ],
         requirement: "Working prototype/demo, explanation of the problem and solution, description of blockchain use, project presentation",
-        prize: "Total Prize Pool: 500 USDT",
+        prize: "Total Prize Pool: 1,500 USDT",
         prizeBreakdown: [
-          { place: "1st Place", amount: "250 USDT" },
-          { place: "2nd Place", amount: "150 USDT" },
-          { place: "3rd Place", amount: "100 USDT" },
+          { place: "1st Place", amount: "750 USDT" },
+          { place: "2nd Place", amount: "500 USDT" },
+          { place: "3rd Place", amount: "250 USDT" },
         ],
         link: "https://blockchainforgoodalliance.notion.site/BGA-Track-NottsHack-26-31dd27bbe9e580849c73cdae3215874e?pvs=143"
       },
