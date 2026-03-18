@@ -479,6 +479,8 @@ export function SponsorsSection() {
   const communitySponsors = [
     { name: 'SA UNMC', icon: '/sa_logo.png', bgClass: '', url: 'https://www.instagram.com/saunmalaysia/?hl=en' },
     { name: 'School of Computer and Mathematical Sciences', icon: '/unm_logo.png', bgClass: '', url: 'https://www.nottingham.edu.my/' },
+    { name: 'TechFlame', icon: '/techflame.png', bgClass: '', url: 'https://www.techflame.com/' },
+    { name: 'PANews', icon: '/PANews_white.png', bgClass: '', url: 'https://www.panewslab.com/' },
   ];
 
   return (
