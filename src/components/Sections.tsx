@@ -20,7 +20,7 @@ export function AboutSection() {
   const highlights = [
     { icon: <CalendarDays className="w-7 h-7" />, label: '6 Days', detail: 'of hacking', color: '#FF4DA6' },
     { icon: <Users className="w-7 h-7" />, label: '3-5 People', detail: 'per team', color: '#5CE6A0' },
-    { icon: <Trophy className="w-7 h-7" />, label: '$2300+', detail: 'in prizes', color: '#FF4DA6' },
+    { icon: <Trophy className="w-7 h-7" />, label: '$3300+', detail: 'in prizes', color: '#FF4DA6' },
     { icon: <UtensilsCrossed className="w-7 h-7" />, label: 'Meals', detail: 'provided on-site', color: '#5CE6A0' },
   ];
 
@@ -284,6 +284,19 @@ export function TracksSection() {
         ],
       },
     },
+    {
+      title: "Dash",
+      description:
+        "Details coming soon. Stay tuned!",
+      color: "#008CE7",
+      comingSoon: true,
+      details: {
+        organiser: "Dash",
+        theme: "Coming soon",
+        focus: [],
+        prize: "Total Prize Pool: 1,000 USDT",
+      },
+    },
   ];
 
   const [activeTrack, setActiveTrack] = useState(tracks[0]);
@@ -379,59 +392,63 @@ export function TracksSection() {
             </div>
 
 
-            {/* DIVIDER */}
+            {!activeTrack.comingSoon && (
+              <>
+                {/* DIVIDER */}
 
-            <div className="w-full h-px bg-white/10 mb-6" />
-
-
-            {/* ORGANISER */}
-
-            <p className="font-mono text-sm text-white/70 mb-2">
-              <span className="text-white">Organiser:</span>{" "}
-              {activeTrack.details.organiser}
-            </p>
+                <div className="w-full h-px bg-white/10 mb-6" />
 
 
-            {/* THEME */}
+                {/* ORGANISER */}
 
-            <p className="font-mono text-sm text-white/70 mb-6">
-              <span className="text-white">Theme:</span>{" "}
-              {activeTrack.details.theme}
-            </p>
+                <p className="font-mono text-sm text-white/70 mb-2">
+                  <span className="text-white">Organiser:</span>{" "}
+                  {activeTrack.details.organiser}
+                </p>
 
 
-            {/* PROJECT TYPES */}
+                {/* THEME */}
 
-            <div>
+                <p className="font-mono text-sm text-white/70 mb-6">
+                  <span className="text-white">Theme:</span>{" "}
+                  {activeTrack.details.theme}
+                </p>
 
-              <p className="font-pixel text-xs text-white/70 mb-3">
-                Project Types:
-              </p>
 
-              <ul className="font-mono text-sm text-white/80 space-y-2">
+                {/* PROJECT TYPES */}
 
-                {activeTrack.details.focus.map((item, i) => (
+                <div>
 
-                  <li key={i} className="flex gap-2 items-start">
-                    <span style={{ color: activeTrack.color }}>•</span>
-                    {item}
-                  </li>
+                  <p className="font-pixel text-xs text-white/70 mb-3">
+                    Project Types:
+                  </p>
 
-                ))}
+                  <ul className="font-mono text-sm text-white/80 space-y-2">
 
-              </ul>
+                    {activeTrack.details.focus.map((item, i) => (
 
-            </div>
+                      <li key={i} className="flex gap-2 items-start">
+                        <span style={{ color: activeTrack.color }}>•</span>
+                        {item}
+                      </li>
 
-            {/* REQUIREMENT */}
+                    ))}
 
-            {activeTrack.details.requirement && (
+                  </ul>
 
-              <p className="font-mono text-sm text-white/70 mt-6">
-                <span className="text-white">Requirement:</span>{" "}
-                {activeTrack.details.requirement}
-              </p>
+                </div>
 
+                {/* REQUIREMENT */}
+
+                {activeTrack.details.requirement && (
+
+                  <p className="font-mono text-sm text-white/70 mt-6">
+                    <span className="text-white">Requirement:</span>{" "}
+                    {activeTrack.details.requirement}
+                  </p>
+
+                )}
+              </>
             )}
 
             {/* BGA LINK */}
@@ -444,7 +461,7 @@ export function TracksSection() {
                   className="font-pixel text-xs"
                   style={{ color: "#26ABD7" }}
                 >
-                  View full BGA track details →
+                  View full {activeTrack.title} track details →
                 </a>
               </div>
             )}
