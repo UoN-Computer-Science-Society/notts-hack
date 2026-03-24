@@ -287,13 +287,20 @@ export function TracksSection() {
     {
       title: "Dash",
       description:
-        "Details coming soon. Stay tuned!",
+        "Build real-world applications using Dash — a network that combines fast, low-cost payments with a powerful Web3 platform. Explore how Dash enables instant transactions, optional privacy, and decentralized app development through Dash Platform (Drive & DAPI).",
       color: "#008CE7",
-      comingSoon: true,
       details: {
         organiser: "Dash",
-        theme: "Coming soon",
-        focus: [],
+        theme: "Payments, Privacy & Web3 Applications",
+        focus: [
+          "Payment solutions",
+          "dApps & Web3 apps",
+          "Wallet integrations",
+          "AI + crypto tools",
+          "Consumer apps",
+        ],
+        requirement:
+          "Working prototype or demo, clear use case and value, integration with Dash (payments or platform), final presentation",
         prize: "Total Prize Pool: 1,000 USDT",
       },
     },
