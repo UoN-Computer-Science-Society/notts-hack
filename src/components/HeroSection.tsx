@@ -136,11 +136,6 @@ export default function HeroSection() {
               alt="CCACC Logo"
               className="w-16 h-auto sm:w-20 md:w-28 object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
             />
-            <img
-              src="/Scaling X labs logo-01.png"
-              alt="Scaling X Labs Logo"
-              className="w-16 h-auto sm:w-20 md:w-28 object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
-            />
           </div>
         </motion.div>
 
