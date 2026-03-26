@@ -276,9 +276,9 @@ export function TracksSection() {
         ],
         requirement:
           "Must integrate at least one interaction with the L3 network (API, data access, or ecosystem interaction).",
-        prize: "Total Prize Pool: 800 USDT",
+        prize: "Total Prize Pool: 1800 USDT",
         prizeBreakdown: [
-          { place: "1st Place", amount: "500 USDT" },
+          { place: "1st Place", amount: "1500 USDT" },
           { place: "2nd Place", amount: "200 USDT" },
           { place: "3rd Place", amount: "100 USDT" },
         ],
