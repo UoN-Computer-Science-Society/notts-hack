@@ -282,6 +282,7 @@ export function TracksSection() {
           { place: "2nd Place", amount: "200 USDT" },
           { place: "3rd Place", amount: "100 USDT" },
         ],
+        link: "https://workshop.skybutter.com/",
       },
     },
     {
