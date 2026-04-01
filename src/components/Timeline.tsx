@@ -53,8 +53,8 @@ const phases: TimelinePhase[] = [
     events: [
       { time: '19:00-19:10', title: 'Introduction', venue: 'Online' },
       { time: '19:10-19:20', title: 'Sponsor Speeches', venue: 'Online' },
-      { time: '19:20-19:30', title: 'Hackathon Briefing', venue: 'Online' },
-      { time: '19:30-20:00', title: 'Tracks', venue: 'Online' },
+      { time: '19:20-19:30', title: 'Participant Rules Briefing', venue: 'Online' },
+      { time: '19:30-20:00', title: 'Track Explanation', venue: 'Online' },
       { time: '20:00-20:30', title: 'Q&A & Closing Remarks', venue: 'Online' },
       { time: '20:30', title: 'Start of Online Hacking', highlight: true },
     ],
