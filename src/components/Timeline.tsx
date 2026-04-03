@@ -42,8 +42,8 @@ const phases: TimelinePhase[] = [
     tagColor: '#FFE66D',
     description: 'Workshops will be conducted physically on University of Nottingham Malaysia campus. Participants from other universities can join online via Google Meet',
     events: [
-      { time: '24 March 18:00-20:00', title: 'Introduction to Hackathons by CCACC', venue: 'F3B04', logo: '/CCACCLogo.svg', link: 'https://meet.google.com/jgp-dovd-jbu', rsvpLink: 'https://forms.office.com/r/2gddxCcNhi' },
-      { time: '25 March 16:00-17:30', title: 'DCAI Workshop', venue: 'F4B09b', logo: '/DCAI_white.png', link: 'https://drive.google.com/file/d/1RaLPLlUF3XHgMXGRFNLHePnm7dJayp_N/view?usp=drivesdk', linkLabel: 'Recording', rsvpLink: 'https://forms.office.com/r/2gddxCcNhi' },
+      { time: '24 March 18:00-20:00', title: 'Introduction to Hackathons by CCACC', venue: 'F3B04', logo: '/CCACCLogo.svg' },
+      { time: '25 March 16:00-17:30', title: 'DCAI Workshop', venue: 'F4B09b', logo: '/DCAI_white.png', link: 'https://drive.google.com/file/d/1RaLPLlUF3XHgMXGRFNLHePnm7dJayp_N/view?usp=drivesdk', linkLabel: 'Recording' },
       { time: '2 April 19:00', title: 'Web3 Applications on Dash Platform', venue: 'Online', logo: '/dash.svg', link: 'https://drive.google.com/file/d/1OeWeiUU-DQE5XNVRmCRQxa-CdqAU9eQQ/view?usp=sharing', linkLabel: 'Recording' },
     ],
   },
@@ -219,7 +219,7 @@ export default function TimelineSection() {
                       >
                         {event.title}
                       </p>
-                      {(event.venue || event.link) && (
+                      {(event.venue || event.link || event.rsvpLink) && (
                         <div className="flex items-center gap-3 mt-1 flex-wrap">
                           {event.venue && (
                             <span className="font-mono text-xs text-white/40 flex items-center gap-1.5">
