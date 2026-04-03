@@ -44,7 +44,7 @@ const phases: TimelinePhase[] = [
     events: [
       { time: '24 March 18:00-20:00', title: 'Introduction to Hackathons by CCACC', venue: 'F3B04', logo: '/CCACCLogo.svg', link: 'https://meet.google.com/jgp-dovd-jbu', rsvpLink: 'https://forms.office.com/r/2gddxCcNhi' },
       { time: '25 March 16:00-17:30', title: 'DCAI Workshop', venue: 'F4B09b', logo: '/DCAI_white.png', link: 'https://drive.google.com/file/d/1RaLPLlUF3XHgMXGRFNLHePnm7dJayp_N/view?usp=drivesdk', linkLabel: 'Recording', rsvpLink: 'https://forms.office.com/r/2gddxCcNhi' },
-      { time: '2 April 19:00', title: 'Web3 Applications on Dash Platform', venue: 'Online', logo: '/dash.svg', link: 'https://meet.google.com/xcr-rbny-ppd' },
+      { time: '2 April 19:00', title: 'Web3 Applications on Dash Platform', venue: 'Online', logo: '/dash.svg', link: 'https://drive.google.com/file/d/1OeWeiUU-DQE5XNVRmCRQxa-CdqAU9eQQ/view?usp=sharing', linkLabel: 'Recording' },
     ],
   },
   {
