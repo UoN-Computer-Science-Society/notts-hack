@@ -52,7 +52,8 @@ const phases: TimelinePhase[] = [
     date: 'April 6',
     tag: 'ONLINE',
     tagColor: '#FF4DA6',
-    link: 'https://meet.google.com/gbw-hyyv-rsk',
+    link: 'https://drive.google.com/file/d/1WgZgXifLudE1Iwhc6zlJaSrnjbaVMsXC/view?usp=sharing',
+    linkLabel: 'Recording',
     events: [
       { time: '19:00-19:10', title: 'Introduction' },
       { time: '19:10-19:20', title: 'Sponsor Speeches' },
