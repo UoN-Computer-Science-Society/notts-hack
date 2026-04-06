@@ -496,6 +496,7 @@ export function SponsorsSection() {
     invert?: boolean;
     scale?: number;
     scaleClass?: string;
+    blendMode?: React.CSSProperties['mixBlendMode'];
   };
 
   const diamondSponsors: Sponsor[] = [
@@ -516,8 +517,14 @@ export function SponsorsSection() {
     { name: 'SA UNMC', icon: '/sa_logo.png', bgClass: '', url: 'https://www.instagram.com/saunmalaysia/?hl=en' },
     { name: 'School of Computer and Mathematical Sciences', icon: '/unm_logo.png', bgClass: '', url: 'https://www.nottingham.edu.my/' },
     { name: 'TechFlame', icon: '/techflame.png', bgClass: '', url: 'https://www.techflame.com/' },
+    {
+      name: 'TechHub News',
+      icon: '/techhub-news.png',
+      bgClass: 'bg-white p-2',
+      url: 'https://techub.news/en',
+    },
     { name: 'PANews', icon: '/PANews_white.png', bgClass: '', url: 'https://www.panewslab.com/' },
-    { name: 'RightUp', icon: '/rightup.png', bgClass: '', url: 'https://beta.rightup.fun' },
+    { name: 'RightUp', icon: '/rightup.png', bgClass: '', url: 'https://beta.rightup.fun', blendMode: 'screen' },
   ];
 
   return (
@@ -663,7 +670,8 @@ export function SponsorsSection() {
                   <img
                     src={sponsor.icon}
                     alt={`${sponsor.name} logo`}
-                    className={`h-5 sm:h-6 md:h-7 w-auto object-contain ${sponsor.scaleClass ?? ''}`}
+                    className={`h-5 sm:h-6 md:h-7 w-auto object-contain ${sponsor.scaleClass ?? ''}` }
+                    style={sponsor.blendMode ? { mixBlendMode: sponsor.blendMode } : undefined}
                   />
                 ) : (
                   <span className="font-mono text-white/30 text-xs px-4">{sponsor.name}</span>
