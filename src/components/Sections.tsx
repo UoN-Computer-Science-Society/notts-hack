@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import CountdownTimer from './CountdownTimer';
@@ -227,6 +228,184 @@ export function GettingThereSection() {
 }
 
 
+
+const MENTORS_NOTION_URL =
+  'https://unm-css.notion.site/33ca80c63b0a801897cfe818da5c74fe?v=33ca80c63b0a803fab10000cbffa030b';
+
+export function MentorsJudgesSection() {
+  type TrackKey = 'BGA' | 'DCAI' | 'DASH' | null;
+
+  type MentorJudge = {
+    name: string;
+    track: TrackKey;
+    roles: ('Judge' | 'Mentor')[];
+    title: string;
+    bio?: string;
+    photo: string;
+  };
+
+  const trackAccent: Record<NonNullable<TrackKey>, string> = {
+    BGA: '#FF4DA6',
+    DCAI: '#5CE6A0',
+    DASH: '#008CE7',
+  };
+
+  const people: MentorJudge[] = [
+    {
+      name: 'Dr Ian Tan',
+      track: 'DCAI',
+      roles: ['Judge'],
+      title: 'Community Lead, Base Malaysia',
+      photo: '/mentors/dr-ian-tan.jpg',
+      bio:
+        'A medical doctor that ventured into the world of esports, gaming, and cryptocurrency. With experience of running an award winning esports marketing agency, Ian plies his trade in the world of blockchain to provide a full service suite to the clients he serves.',
+    },
+    {
+      name: 'Ken Chia',
+      track: 'DCAI',
+      roles: ['Judge', 'Mentor'],
+      title: 'Principal Engineer, DCAI',
+      photo: '/mentors/ken-chia.jpg',
+      bio:
+        "10 years of experience engineering secure, scalable backend architectures in Singapore. Founder of a software house specializing in system architecture, security, and full-stack solutions (C# .NET Core, MSSQL, React). I've built everything from FinTech infrastructure (payment gateways, crypto wallets, investment platforms) to internal enterprise systems for the semiconductor industry (UMC).",
+    },
+    {
+      name: 'YL (Sky)',
+      track: 'DCAI',
+      roles: ['Judge', 'Mentor'],
+      title: 'Tech Lead, DCAI',
+      photo: '/mentors/yl-sky.jpg',
+      bio:
+        'A business builder, animator, visual effects artist, and half-breed full-stack dev mostly a solo player across a total of 341 projects. Problem solver, white hat.',
+    },
+    {
+      name: 'William MH',
+      track: 'DCAI',
+      roles: ['Judge', 'Mentor'],
+      title: 'Senior Programmer, DCAI',
+      photo: '/mentors/william-mh.jpg',
+      bio:
+        '6 years of experience engineering secure, scalable backend architectures in DCAI. Software Developer in a pharmaceutical manufacturing company, specializing in system architecture, security, and full-stack solutions (Laravel, MySQL, MSSQL, React). Experienced in building DCAI infrastructure (payment gateways, crypto wallets, investment platforms) and internal enterprise systems.',
+    },
+    {
+      name: 'Daria $DASHa Chernozub',
+      track: 'DASH',
+      roles: ['Judge', 'Mentor'],
+      title: 'DASH Core Community Advocate APAC Lead',
+      photo: '/mentors/daria-dasha-chernozub.jpg',
+      bio:
+        'Dash ecosystem contributor focused on growth, partnerships, and global adoption. APAC lead Ex ICP Hub Turkey head (Global Adoption), DevRel at SuperProtocol, active in Solana, helping startups secure grants, fundraise, and scale.',
+    },
+    {
+      name: 'J. Glenn Tan',
+      track: 'BGA',
+      roles: ['Judge'],
+      title: 'Director of Global Affairs, Blockchain for Good Alliance',
+      photo: '/mentors/j-glenn-tan.jpg',
+      bio:
+        'Glenn serves as the Director of Global Affairs at the Blockchain for Good Alliance (BGA), the flagship initiative founded by Bybit, the world’s second-largest crypto exchange, to accelerate real-world blockchain adoption. He works closely with governments, UN agencies, and industry partners to support the deployment and scaling of blockchain solutions addressing real-world social, economic and public infrastructure challenges.',
+    },
+    {
+      name: 'Sky',
+      track: null,
+      roles: ['Mentor'],
+      title: 'Experienced Chain-Agnostic Hackathon & Business Development Manager, CCACC',
+      photo: '/mentors/sky.jpg',
+    },
+  ];
+
+  return (
+    <section id="mentors" className="py-12 sm:py-16 md:py-20 px-4 relative z-10">
+      <div className="max-w-4xl mx-auto">
+        <motion.h2
+          className="font-pixel text-xl sm:text-2xl md:text-4xl text-center mb-4 md:mb-6 text-white"
+          {...fadeInUp}
+        >
+          MENTORS &amp; JUDGES
+        </motion.h2>
+        <motion.p
+          className="text-center font-mono text-white/70 text-xs sm:text-sm max-w-2xl mx-auto mb-6 md:mb-8"
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          > On <span className="text-white/85">11 April</span>, mentors will be available{' '}
+          <span className="text-white/85">in person</span> during the dedicated on-campus
+          sessions — times and venues are in the{' '}
+          <a href="#timeline" className="text-[#00D4FF] hover:text-[#00D4FF]/90">
+            schedule
+          </a>
+        </motion.p>
+
+        <div className="flex flex-col">
+          {people.map((person, index) => {
+            const color = person.track ? trackAccent[person.track] : 'rgba(255,255,255,0.5)';
+            return (
+              <motion.article
+                key={person.name}
+                className="group grid grid-cols-1 md:grid-cols-[auto_1fr] md:items-start gap-4 md:gap-6 py-5 md:py-6 border-t border-white/10 first:border-t-0 first:pt-0"
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ delay: index * 0.05, duration: 0.5 }}
+              >
+                <div className="relative shrink-0 w-[7.25rem] sm:w-32 md:w-36 mx-0">
+                  <div
+                    className="relative aspect-[3/4] w-full overflow-hidden rounded-xl"
+                    style={{
+                      boxShadow: `0 0 0 2px ${color}55, 0 12px 28px -8px rgba(0,0,0,0.5), 0 0 36px -14px ${color}40`,
+                    }}
+                  >
+                    <Image
+                      src={person.photo}
+                      alt={`${person.name}`}
+                      fill
+                      className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                      sizes="(max-width: 768px) 116px, 144px"
+                    />
+                  </div>
+                </div>
+
+                <div
+                  className="min-w-0 w-full max-w-[24rem] sm:max-w-[26rem] flex flex-col justify-center py-1 border-l-2 pl-4 md:pl-5"
+                  style={{ borderColor: `${color}55` }}
+                >
+                  <p className="font-pixel text-[7px] text-white/45 tracking-widest mb-2">
+                    {person.roles.map((r) => r.toUpperCase()).join(' · ')}
+                    {person.track && (
+                      <>
+                        {' · '}
+                        <span className="sr-only">Sponsor track: </span>
+                        <span className="font-pixel" style={{ color }}>
+                          {person.track} Track
+                        </span>
+                      </>
+                    )}
+                  </p>
+                  <h3 className="font-pixel text-xs sm:text-sm text-white mb-1 leading-snug">
+                    {person.name}
+                  </h3>
+                  <p
+                    className="font-mono text-[11px] sm:text-xs leading-snug mb-2"
+                    style={{ color }}
+                  >
+                    {person.title}
+                  </p>
+                  {person.bio && (
+                    <p className="font-mono text-white/60 text-[11px] sm:text-xs leading-snug">
+                      {person.bio}
+                    </p>
+                  )}
+                </div>
+              </motion.article>
+            );
+          })}
+        </div>
+
+      </div>
+    </section>
+  );
+}
 
 export function TracksSection() {
 
