@@ -69,13 +69,13 @@ const phases: TimelinePhase[] = [
     tag: 'ON-SITE',
     tagColor: '#5CE6A0',
     events: [
-      { time: '07:00-10:00', title: 'Registration', venue: 'UG Room' },
-      { time: '09:00-10:00', title: 'Breakfast', venue: 'UG Room' },
+      { time: '07:00-10:00', title: 'Registration', venue: 'Student Lounge' },
+      { time: '09:00-10:00', title: 'Breakfast', venue: 'Student Lounge' },
       { time: '09:00', title: 'Start of Physical Hacking', highlight: true },
       { time: '10:00-13:00', title: 'Mentorship Session 1', venue: 'H1B21' },
-      { time: '13:00-14:00', title: 'Lunch', venue: 'UG Room' },
+      { time: '13:00-14:00', title: 'Lunch', venue: 'Student Lounge' },
       { time: '14:00-16:00', title: 'Mentorship Session 2', venue: 'H1B21' },
-      { time: '19:00-20:00', title: 'Dinner', venue: 'UG Room' },
+      { time: '19:00-20:00', title: 'Dinner', venue: 'Student Lounge' },
     ],
   },
   {
