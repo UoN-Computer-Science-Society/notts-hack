@@ -5,6 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "start": "next start",
     "lint": "eslint",
     "video:preview": "remotion studio src/video/Root.tsx",
@@ -18,11 +21,11 @@
     "cny:render-gif": "remotion render src/video/Root.tsx CNYPoster out/cny-poster.gif --image-format png"
   },
   "dependencies": {
+    "@opennextjs/cloudflare": "^1.19.1",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",
     "@remotion/cli": "^4.0.414",
     "@remotion/google-fonts": "^4.0.414",
-    "@vercel/analytics": "^2.0.1",
     "framer-motion": "^12.29.2",
     "lucide-react": "^0.577.0",
     "next": "^16.2.2",
@@ -43,6 +46,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.82.2"
   }
 }

@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
-import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
@@ -15,16 +14,30 @@ export const viewport: Viewport = {
 const OG_IMAGE_PATH = "/NottsHack23.png";
 const OG_IMAGE_WIDTH = 1154;
 const OG_IMAGE_HEIGHT = 543;
+const DEFAULT_LOCAL_URL = "http://localhost:3000";
+
+function normalizeSiteUrl(siteUrl: string): string {
+  const trimmedSiteUrl = siteUrl.trim().replace(/\/+$/, "");
+  if (!trimmedSiteUrl) return DEFAULT_LOCAL_URL;
+  return /^https?:\/\//.test(trimmedSiteUrl) ? trimmedSiteUrl : `https://${trimmedSiteUrl}`;
+}
 
 async function getBaseUrl(): Promise<string> {
+  const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  if (configuredSiteUrl) return normalizeSiteUrl(configuredSiteUrl);
+
   const headersList = await headers();
-  const host = headersList.get("host") ?? "";
-  const protocol = process.env.VERCEL ? "https" : "http";
-  if (host) return `${protocol}://${host}`;
-  return (
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000")
-  );
+  const host = headersList.get("x-forwarded-host") ?? headersList.get("host");
+
+  if (host) {
+    const protocol =
+      headersList.get("x-forwarded-proto") ??
+      (host.includes("localhost") || host.startsWith("127.0.0.1") ? "http" : "https");
+
+    return `${protocol}://${host}`;
+  }
+
+  return DEFAULT_LOCAL_URL;
 }
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -91,7 +104,6 @@ export default function RootLayout({
       <body className="antialiased">
         <Navbar />
         {children}
-        <Analytics />
       </body>
     </html>
   );
